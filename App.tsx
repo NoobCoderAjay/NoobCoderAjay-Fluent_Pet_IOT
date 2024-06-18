@@ -1,20 +1,29 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import React from "react";
+import { StyleSheet, View } from "react-native";
+
+import { StatusBar } from "expo-status-bar";
+import FontLoader from "./src/components/FontLoader";
+
+import RootNavigator from "@navigation/navigators/RootNavigator";
 
 export default function App() {
   return (
-    <View style={styles.container}>
-      <Text>Open up App.tsx to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
+    <FontLoader>
+      <View style={styles.container}>
+        <StatusBar
+          style="dark"
+          backgroundColor="transparent"
+          translucent={true}
+        />
+        <RootNavigator authToken={null} />
+      </View>
+    </FontLoader>
   );
 }
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
+    backgroundColor: "transparent",
   },
 });
