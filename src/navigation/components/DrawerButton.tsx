@@ -1,4 +1,9 @@
-import { useNavigation, DrawerActions } from "@react-navigation/native";
+import {
+  useNavigation,
+  DrawerActions,
+  NavigationProp,
+  ParamListBase,
+} from "@react-navigation/native";
 import React from "react";
 import { StyleSheet, TouchableOpacity } from "react-native";
 
@@ -6,7 +11,7 @@ import { DrawerIcon } from "src/assets/icons";
 import NavigationButtonContainer from "./NavigationButtonContainer";
 
 const DrawerButton: React.FC = () => {
-  const navigation = useNavigation();
+  const navigation = useNavigation<NavigationProp<ParamListBase>>();
 
   const openDrawer = () => {
     navigation.dispatch(DrawerActions.openDrawer());

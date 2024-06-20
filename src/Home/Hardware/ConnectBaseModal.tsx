@@ -10,7 +10,7 @@ import {
 } from "react-native";
 
 //@ts-ignore
-import BaseButtonThree from "../assets/images/baseImages/BaseButtonThree.png";
+import BaseButtonThree from "../../assets/images/baseImages/BaseButtonThree.png";
 
 import { NavigationProp, ParamListBase } from "@react-navigation/native";
 import CustomButton from "src/components/common/CustomButton";

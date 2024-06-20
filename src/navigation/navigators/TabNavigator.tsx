@@ -1,5 +1,8 @@
 import React from "react";
-import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
+import {
+  BottomTabScreenProps,
+  createBottomTabNavigator,
+} from "@react-navigation/bottom-tabs";
 import {
   Activity,
   Bases,
@@ -8,14 +11,37 @@ import {
   Module,
 } from "../../assets/icons";
 import { Colors } from "../../theme/Colors";
-import ModuleNavigator from "./ModuleNavigator";
-import { Navigator } from "@navigation/constants";
-import { LandingNavigator } from "./LandingNavigator";
-import HouseholdNavigator from "./HouseholdNavigator";
-import HardWareNavigator from "./HardwareNavigator";
+import ModuleNavigator, { ModuleStackParamList } from "./ModuleNavigator";
+import { Navigator, ScreenTitle } from "@navigation/constants";
+import { LandingNavigator, LandingStackScreenProps } from "./LandingNavigator";
+import HouseholdNavigator, {
+  HouseholdStackParamList,
+} from "./HouseholdNavigator";
+import HardWareNavigator, { HardwareStackParamList } from "./HardwareNavigator";
+import ActivityScreen from "src/Home/Dashboard/ActivityFeed";
+import DashboardNavigator, {
+  DashboardStackParamList,
+} from "./DashboardNavigator";
+import { NavigatorScreenParams } from "@react-navigation/native";
+import { CompositeScreenProps } from "@navigation/helpers";
+import { ModalStackParamList, ModalStackScreenProps } from "./ModalNavigator";
+import { BetaStackParamList } from "./OnboardingNavigator";
 
-const Tab = createBottomTabNavigator();
-type Props = {};
+export type TabParamList = {
+  [Navigator.HOUSEHOLD]: NavigatorScreenParams<HouseholdStackParamList>;
+  [Navigator.ACTIVITY]: NavigatorScreenParams<DashboardStackParamList>;
+  [Navigator.HARDWARE]: NavigatorScreenParams<HardwareStackParamList>;
+  //@ts-ignore
+  [Navigator.LANDING_NAV]: NavigatorScreenParams<LandingStackScreenProps>;
+  [Navigator.MODULE_NAV]: NavigatorScreenParams<ModuleStackParamList>;
+};
+
+export type TabScreenProps<RouteName extends keyof TabParamList> =
+  CompositeScreenProps<
+    BottomTabScreenProps<TabParamList, RouteName>,
+    ModalStackScreenProps<keyof ModalStackParamList>
+  >;
+const Tab = createBottomTabNavigator<TabParamList>();
 
 const TabNavigator = () => {
   return (
@@ -34,44 +60,54 @@ const TabNavigator = () => {
       }}
       initialRouteName={Navigator.LANDING_NAV}
     >
-      {/* <Tab.Screen
-        name={Navigator.ACTIVITY.replace("Nav", "")}
+      <Tab.Screen
         //@ts-ignore
-        component={ActivityScreen}
+        name={Navigator.ACTIVITY}
+        //@ts-ignore
+        component={DashboardNavigator}
         options={{
+          tabBarLabel: () => null,
           headerShown: false,
           tabBarIcon: ({ focused }) => <Activity color={Colors.WHITE} />,
         }}
-      /> */}
+      />
       <Tab.Screen
-        name={Navigator.LANDING_NAV.replace("Nav", "")}
+        //@ts-ignore
+        name={Navigator.LANDING_NAV}
         component={LandingNavigator}
         options={{
+          tabBarLabel: () => null,
           headerShown: false,
           tabBarIcon: ({ focused }) => <HomeImage color={Colors.WHITE} />,
         }}
       />
 
       <Tab.Screen
-        name={Navigator.MODULE_NAV.replace("Nav", "")}
+        //@ts-ignore
+        name={Navigator.MODULE_NAV}
         component={ModuleNavigator}
         options={{
+          tabBarLabel: () => null,
           headerShown: false,
           tabBarIcon: ({ focused }) => <Module color={Colors.WHITE} />,
         }}
       />
       <Tab.Screen
-        name={Navigator.HARDWARE.replace("Nav", "")}
+        //@ts-ignore
+        name={Navigator.HARDWARE}
         component={HardWareNavigator}
         options={{
+          tabBarLabel: () => null,
           headerShown: false,
           tabBarIcon: ({ focused }) => <Bases color={Colors.WHITE} />,
         }}
       />
       <Tab.Screen
-        name={Navigator.HOUSEHOLD.replace("Nav", "")}
+        //@ts-ignore
+        name={Navigator.HOUSEHOLD}
         component={HouseholdNavigator}
         options={{
+          tabBarLabel: () => null,
           headerShown: false,
           tabBarIcon: ({ focused }) => <HouseHold color={Colors.WHITE} />,
         }}

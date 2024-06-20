@@ -17,7 +17,7 @@ import {
   ParamListBase,
   useNavigation,
 } from "@react-navigation/native";
-import { Screen } from "@navigation/constants";
+import { Navigator, Screen } from "@navigation/constants";
 import CustomButton from "src/components/common/CustomButton";
 
 type Props = {};
@@ -25,7 +25,9 @@ type Props = {};
 const HardwareScreen = (props: Props) => {
   const navigation = useNavigation<NavigationProp<ParamListBase>>();
   const handleBtnPress = () => {
-    navigation.navigate(Screen.CONNECTION_SETUP);
+    navigation.navigate(Navigator.BASE_NAVIGATOR, {
+      screen: Screen.CONNECTION_SETUP,
+    });
   };
 
   return (

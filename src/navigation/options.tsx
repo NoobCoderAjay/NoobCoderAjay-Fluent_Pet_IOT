@@ -10,6 +10,7 @@ import { Font, TextSize } from "src/theme/Text";
 import HeaderImg from "../assets/images/header/HeaderImg.png";
 import { BackButton } from "./components";
 import { Image, StyleSheet } from "react-native";
+import { FontArizona } from "src/components/common/Typography";
 const styles = StyleSheet.create({
   headerBackground: {
     flex: 1,
@@ -27,8 +28,8 @@ export const screenOptions: StackNavigationOptions = {
   headerTintColor: Colors.PRIMARY_DARK,
   headerTitleStyle: {
     fontSize: TextSize.body.fontSize,
-    fontFamily: Font.BLACK,
-    letterSpacing: 3,
+    fontFamily: FontArizona.BOLD,
+    letterSpacing: 2,
   },
 
   headerBackTitleVisible: false,

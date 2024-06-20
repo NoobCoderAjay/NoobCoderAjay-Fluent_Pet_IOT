@@ -44,3 +44,5 @@ export { default as HomeImage } from "./HomeImage";
 export { default as Bases } from "./Bases";
 export { default as Activity } from "./Activity";
 export { default as HouseHold } from "./HouseHold";
+export { default as Reset } from "./Reset";
+export { default as Done } from "./Done";

@@ -22,4 +22,7 @@ export enum Navigator {
 
   //Module Navigator
   MODULE_NAV = "ModuleNav",
+
+  //testing
+  BASE_NAVIGATOR = "BaseNavigator",
 }

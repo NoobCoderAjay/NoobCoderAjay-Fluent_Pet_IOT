@@ -54,4 +54,8 @@ export enum ScreenTitle {
   //new
 
   HARDWARE_SCREEN = "HARDWARE",
+  ACTIVITY_SCREEN = "ACTIVITY",
+
+  FLUENTPET_EDU = "FLUENTPET EDU",
+  FLUENTPET = "FLUENTPET",
 }

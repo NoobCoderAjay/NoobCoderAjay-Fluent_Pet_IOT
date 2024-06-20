@@ -60,9 +60,10 @@ const SafeAreaButtonBlock: React.FC<ButtonBlockProps> = ({
 
 const styles = StyleSheet.create({
   container: {
-    paddingHorizontal: Size.M,
+    paddingHorizontal: Size.S,
     paddingVertical: Size.M,
     backgroundColor: "#FFFFFF",
+    marginLeft: Size.XS,
   },
   buttonContainer: {
     flexDirection: "row",

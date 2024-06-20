@@ -1,6 +1,6 @@
-import { Dimensions, ScaledSize } from 'react-native';
+import { Dimensions, ScaledSize } from "react-native";
 
-const dimensions: ScaledSize = Dimensions.get('screen');
+const dimensions: ScaledSize = Dimensions.get("screen");
 
 export const SCREEN_WIDTH = dimensions.width;
 export const SCREEN_HEIGHT = dimensions.height;
@@ -34,6 +34,7 @@ export enum Size {
 export enum SizeV2 {
   X3_S = 2,
   X2_S = 4,
+  X1_S = 6,
   XS = 8,
   S = 12,
   M = 18,

@@ -9,7 +9,7 @@ import {
 } from "@react-navigation/native";
 
 //@ts-ignore
-import Wifi from "../assets/images/baseRegistration/WiFi_List.png";
+import Wifi from "../../assets/images/baseRegistration/WiFi_List.png";
 import { Screen } from "@navigation/constants";
 import { Body, Title1 } from "src/components/common/Text";
 import { Colors } from "src/theme/Colors";

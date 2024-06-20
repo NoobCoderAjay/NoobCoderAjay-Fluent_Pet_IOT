@@ -1,5 +1,8 @@
 import React from "react";
-import { createStackNavigator } from "@react-navigation/stack";
+import {
+  StackScreenProps,
+  createStackNavigator,
+} from "@react-navigation/stack";
 import {
   NavigationContainer,
   NavigatorScreenParams,
@@ -7,26 +10,34 @@ import {
 
 import { Navigator } from "../constants";
 import OnboardingNavigator, { BetaStackParamList } from "./OnboardingNavigator";
-import { HomeNavigator } from "./HomeNavigator";
+import { HomeDrawerParamList, HomeNavigator } from "./HomeNavigator";
 
 export type RootStackParamList = {
-  [Navigator.ONBOARDING_NAV]: NavigatorScreenParams<BetaStackParamList>;
+  // [Navigator.AUTHENTICATION]: NavigatorScreenParams<AuthenticationStackParamList>;
+  [Navigator.HOME_NAV]: NavigatorScreenParams<HomeDrawerParamList>;
 };
 
-const Stack = createStackNavigator();
+export type RootStackScreenProps<RouteName extends keyof RootStackParamList> =
+  StackScreenProps<RootStackParamList, RouteName>;
+
 interface Props {
   authToken: string | null;
 }
+const Stack = createStackNavigator<RootStackParamList>();
 
 const RootNavigator: React.FC<Props> = ({ authToken }) => {
   return (
     <NavigationContainer>
       <Stack.Navigator screenOptions={{ headerShown: false }}>
-        <Stack.Screen
+        {/* <Stack.Screen
           name={Navigator.ONBOARDING_NAV}
           component={OnboardingNavigator}
+        /> */}
+        <Stack.Screen
+          name={Navigator.HOME_NAV}
+          component={HomeNavigator}
+          options={{ headerShown: false }}
         />
-        {/* <Stack.Screen name={Navigator.HOME_NAV} component={HomeNavigator} /> */}
       </Stack.Navigator>
     </NavigationContainer>
   );

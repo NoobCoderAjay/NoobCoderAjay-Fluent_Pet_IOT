@@ -14,6 +14,7 @@ import SafeAreaButtonBlock from "src/components/common/SafeAreaButtonBlock";
 import { FontArizona } from "src/components/common/Typography";
 import { Colors } from "src/theme/Colors";
 import CheckBox from "@react-native-community/checkbox";
+import Checkbox from "expo-checkbox";
 
 type Props = {};
 
@@ -45,11 +46,11 @@ const SetupFinish = (_props: Props) => {
             Data consent
           </Text>
           <View className="flex-row mt-5">
-            {/* <Checkbox
+            <Checkbox
               value={isSelected}
               onValueChange={setSelection}
               style={styles.checkbox}
-            /> */}
+            />
             <Text className="ml-2.5 font-arizonaRegular">
               “I consent to having my pet button pressing data {"\n"}shared with
               qualified university researchers for the purpose of scientific

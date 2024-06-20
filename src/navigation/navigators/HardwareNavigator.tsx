@@ -1,15 +1,29 @@
 import {
   createStackNavigator,
-  StackHeaderProps,
-  StackNavigationOptions,
-  TransitionPresets,
+  StackScreenProps,
 } from "@react-navigation/stack";
 
 import { Screen, ScreenTitle } from "../constants";
 import HardwareScreen from "src/Home/Hardware/HardwareScreen";
 import { screenOptions } from "@navigation/options";
+import {
+  CompositeScreenProps,
+  getFirstScreenOptions,
+} from "@navigation/helpers";
+import { TabParamList, TabScreenProps } from "./TabNavigator";
 
-const Stack = createStackNavigator();
+export type HardwareStackParamList = {
+  [Screen.HARDWARE_SCREEN]: undefined;
+};
+
+export type HardwareScreenProps<
+  RouteName extends keyof HardwareStackParamList
+> = CompositeScreenProps<
+  StackScreenProps<HardwareStackParamList, RouteName>,
+  TabScreenProps<keyof TabParamList>
+>;
+
+const Stack = createStackNavigator<HardwareStackParamList>();
 
 const HardWareNavigator = () => {
   return (
@@ -17,7 +31,7 @@ const HardWareNavigator = () => {
       <Stack.Screen
         name={Screen.HARDWARE_SCREEN}
         component={HardwareScreen}
-        options={{ title: ScreenTitle.HARDWARE_SCREEN }}
+        options={getFirstScreenOptions(ScreenTitle.HARDWARE_SCREEN)}
       />
     </Stack.Navigator>
   );

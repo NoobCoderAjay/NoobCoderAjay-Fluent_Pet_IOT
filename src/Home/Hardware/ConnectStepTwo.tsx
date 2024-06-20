@@ -2,7 +2,7 @@ import { Image, ScrollView, StyleSheet, Text, View } from "react-native";
 import React from "react";
 
 //@ts-ignore
-import BaseButtonFour from "../assets/images/baseImages/BaseButtonFour.png";
+import BaseButtonFour from "../../assets/images/baseImages/BaseButtonFour.png";
 
 import {
   NavigationProp,

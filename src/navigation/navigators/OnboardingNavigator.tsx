@@ -13,17 +13,24 @@ import GoalScreen from "src/Home/QuizScreens/GoalScreen";
 import TestScreen from "src/Home/QuizScreens/TestScreen";
 import SetupFinish from "src/Home/QuizScreens/SetupFinish";
 import { screenOptions } from "@navigation/options";
-import TabNavigator from "./TabNavigator";
+import TabNavigator, { TabParamList, TabScreenProps } from "./TabNavigator";
+import { HomeNavigator } from "./HomeNavigator";
 
 export type BetaStackParamList = {
   [Screen.PROFILE_SCREEN]: { id: number };
   [Screen.INFORMATION_SCREEN]: undefined;
+  [Screen.LEARNING_SCREEN]: undefined;
   [Screen.GOAL_SCREEN]: undefined;
   [Screen.TEST_SCREEN]: undefined;
   [Screen.SETUP_SCREEN]: undefined;
-  // [Navigator.TAB_NAV]: undefined;
-};
 
+  [Navigator.TAB_NAV]: undefined;
+};
+export type BaseStackScreenProps<RouteName extends keyof BetaStackParamList> =
+  CompositeScreenProps<
+    StackScreenProps<BetaStackParamList, RouteName>,
+    TabScreenProps<keyof TabParamList>
+  >;
 const Stack = createStackNavigator<BetaStackParamList>();
 const OnboardingNavigator = () => {
   return (
@@ -60,6 +67,12 @@ const OnboardingNavigator = () => {
         component={TabNavigator}
         options={{ headerShown: false }}
       />
+      {/* <Stack.Screen
+        //@ts-ignore
+        name={Navigator.HOME_NAV}
+        component={HomeNavigator}
+        options={{ headerShown: false }}
+      /> */}
     </Stack.Navigator>
   );
 };

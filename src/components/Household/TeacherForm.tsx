@@ -1,183 +1,83 @@
-import { FontAwesome as Icon } from "@expo/vector-icons";
-import CheckBox from "@react-native-community/checkbox";
-import React, { useContext, Dispatch, SetStateAction, useState } from "react";
-import { View, StyleSheet } from "react-native";
+import { ScrollView, StyleSheet, Text, View } from "react-native";
+import React, { Dispatch, SetStateAction } from "react";
+
 import PickerModal from "react-native-picker-modal-view";
 
-import pickerDefaultProps from "./constants";
-import countryData from "./countries.json";
-
-import useFeatureFlags from "../../hooks/useFeatureFlags";
-import { Colors } from "src/theme/Colors";
-import { Select, TextInput } from "../common/Form";
-import { Caption1 } from "../common/Text";
-import { TextSize } from "src/theme/Text";
-import { ScreenTitle } from "@navigation/constants";
-import { ProfileIcon } from "src/assets/icons";
-import { Size } from "src/theme/Size";
-import { SelectIcon } from "../common/Form/Select";
-
+import { Colors } from "../../theme/Colors";
+import countryData from "../../components/Household/countries.json";
+import { Size } from "../../theme/Size";
+import pickerDefaultProps from "../../components/Household/constants";
+import { Select, TextInput } from "src/components/common/Form";
+import { FontArizona } from "src/components/common/Typography";
+import { SelectIcon } from "src/components/common/Form/Select";
 interface Props {
-  isNewTeacher: boolean;
-  email: string;
-  country: string;
-  sendHouseholdInvitation?: boolean;
-  isHouseholdMember?: boolean;
-  isHouseholdInvitation?: boolean;
-  setEmail: Dispatch<SetStateAction<string>>;
-  setCountry: Dispatch<SetStateAction<string>>;
-  setSendHouseholdInvitation?: Dispatch<SetStateAction<boolean>>;
+  subjectName?: string;
+  country?: string;
+  setSubjectName?: Dispatch<SetStateAction<string>>;
+  // setCountry?: Dispatch<SetStateAction<string>>;
 }
 
 const TeacherForm: React.FC<Props> = ({
-  isNewTeacher,
-  email,
+  subjectName,
   country,
-  sendHouseholdInvitation,
-  isHouseholdMember,
-  isHouseholdInvitation,
-  setEmail,
-  setCountry,
-  setSendHouseholdInvitation,
+  setSubjectName,
+  // setCountry,
 }) => {
-  // const { globalState } = useContext(AuthContext);
-  //@ts-ignore
-  const { householdInvitesEnabled } = useFeatureFlags();
-  const [emailFrozen] = useState<string>(email);
-
-  let membershipColor = Colors.GREY;
-  let membershipText = emailFrozen
-    ? `${
-        emailFrozen || "This Teacher"
-      } has not been invited to your Household yet`
-    : null;
-
-  if (isHouseholdMember) {
-    membershipColor = Colors.PRIMARY_DARK;
-    membershipText = `${emailFrozen} is a confirmed Member of this Household`;
-  } else if (isHouseholdInvitation) {
-    membershipColor = Colors.ORANGE;
-    membershipText = `${emailFrozen} has a pending invitation to join this Household`;
-  }
-
   return (
-    <View style={styles.container}>
+    <ScrollView contentContainerStyle={styles.formContainer}>
+      <Text style={styles.label}>Full Name</Text>
       <TextInput
         marginBottom={Size.XS}
-        placeholder="Email"
-        onChangeText={setEmail}
-        value={email}
+        placeholder="Name"
+        onChangeText={setSubjectName}
+        value={subjectName}
         autoCapitalize="none"
-        editable={isNewTeacher}
+        backgroundColor={Colors.LIGHT_WHITE}
       />
+      <Text style={styles.label}>Email Id</Text>
+      <TextInput
+        marginBottom={Size.XS}
+        placeholder="Email Id"
+        onChangeText={setSubjectName}
+        value={subjectName}
+        autoCapitalize="none"
+        backgroundColor={Colors.LIGHT_WHITE}
+      />
+      <Text style={styles.label}>Country</Text>
       <PickerModal
         renderSelectView={(_disabled, _selected, showModal) => (
           <Select
             iconRight={SelectIcon.CHEVRON}
-            placeholder={"Country"}
+            placeholder="Choose your location"
             value={country}
             onPress={showModal}
+            backgroundColor={Colors.LIGHT_WHITE}
           />
         )}
-        // @ts-ignore
-        onSelected={(selected) => setCountry(selected.Name)}
+        //@ts-ignore
+        onSelected={(selected) => {
+          //@ts-ignore
+          // setCountry(selected.Name);
+        }}
         items={countryData as any[]}
         showToTopButton={true}
         {...pickerDefaultProps}
       />
-
-      {householdInvitesEnabled && !!email && (
-        <>
-          {isNewTeacher ? (
-            <>
-              <View style={styles.checkbox}>
-                <CheckBox
-                  value={sendHouseholdInvitation}
-                  onValueChange={setSendHouseholdInvitation}
-                  // iOS
-                  onCheckColor={Colors.PRIMARY}
-                  onTintColor={Colors.PRIMARY}
-                  // Android
-                  tintColors={{
-                    true: Colors.PRIMARY,
-                    false: Colors.SECONDARY_LIGHT,
-                  }}
-                />
-                <Caption1 style={styles.marginLeftSmall}>
-                  Send invitation email
-                </Caption1>
-              </View>
-              <Caption1 style={styles.moreInfo} color={Colors.GREY_DARK}>
-                <Icon
-                  name="info-circle"
-                  size={TextSize.caption1.lineHeight}
-                  color={Colors.SECONDARY_LIGHT}
-                />{" "}
-                When invitation email is sent, the Teacher will be able to join
-                your shared Household and collaborate with you within the same
-                Household. If you don't send invitation email now, you can do it
-                later through the {ScreenTitle.SETTINGS} screen.
-              </Caption1>
-            </>
-          ) : (
-            <>
-              <View style={styles.householdMemberContainer}>
-                <View style={styles.iconContainer}>
-                  <ProfileIcon color={membershipColor} />
-                </View>
-                <Caption1 style={styles.membershipTextStyle}>
-                  {membershipText}
-                </Caption1>
-              </View>
-
-              <Caption1 style={styles.moreInfo} color={Colors.GREY_DARK}>
-                <Icon
-                  name="info-circle"
-                  size={TextSize.caption1.lineHeight}
-                  color={Colors.SECONDARY_LIGHT}
-                />{" "}
-                You can manage Household invitations through{" "}
-                {ScreenTitle.SETTINGS} screen.
-              </Caption1>
-            </>
-          )}
-        </>
-      )}
-    </View>
+    </ScrollView>
   );
 };
 
 export default TeacherForm;
 
 const styles = StyleSheet.create({
-  container: {
-    width: "100%",
-    marginBottom: Size.L,
+  formContainer: {
+    marginTop: 20,
+    backgroundColor: "#FFFFFF",
   },
-  checkbox: {
-    margin: Size.XS,
-    flexDirection: "row",
-    alignItems: "center",
-    flex: 1,
-  },
-  householdMemberContainer: {
-    flex: 1,
-    flexDirection: "row",
-    alignItems: "center",
-    marginVertical: Size.XS,
-    marginHorizontal: Size.XS,
-  },
-  membershipTextStyle: {
-    marginRight: Size.S,
-  },
-  moreInfo: {
-    marginHorizontal: Size.XS,
-    textAlign: "justify",
-  },
-  iconContainer: {
-    marginRight: Size.X2_S,
-  },
-  marginLeftSmall: {
-    marginLeft: Size.XS,
+  label: {
+    fontSize: 16,
+    marginBottom: 15,
+    color: "#333333",
+    fontFamily: FontArizona.BOLD,
   },
 });

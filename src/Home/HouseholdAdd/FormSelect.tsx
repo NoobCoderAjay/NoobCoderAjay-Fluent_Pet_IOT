@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { View, Text, TouchableOpacity, StyleSheet } from "react-native";
-import { FontArizona } from "../../common/Typography";
+import { FontArizona } from "src/components/common/Typography";
 
 type Props = {
   buttonLabels: [string, string];

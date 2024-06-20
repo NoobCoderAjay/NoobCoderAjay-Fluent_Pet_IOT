@@ -2,14 +2,30 @@ import {
   createStackNavigator,
   StackHeaderProps,
   StackNavigationOptions,
+  StackScreenProps,
   TransitionPresets,
 } from "@react-navigation/stack";
 import Household from "../../Home/HouseHold/Household";
 
 import { Screen, ScreenTitle } from "../constants";
 import { screenOptions } from "@navigation/options";
+import {
+  CompositeScreenProps,
+  getFirstScreenOptions,
+} from "@navigation/helpers";
+import { TabParamList, TabScreenProps } from "./TabNavigator";
 
-const Stack = createStackNavigator();
+export type HouseholdStackParamList = {
+  [Screen.HOUSEHOLD]: undefined;
+};
+
+export type HouseholdStackScreenProps<
+  RouteName extends keyof HouseholdStackParamList
+> = CompositeScreenProps<
+  StackScreenProps<HouseholdStackParamList, RouteName>,
+  TabScreenProps<keyof TabParamList>
+>;
+const Stack = createStackNavigator<HouseholdStackParamList>();
 
 const HouseholdNavigator = () => {
   return (
@@ -17,7 +33,7 @@ const HouseholdNavigator = () => {
       <Stack.Screen
         name={Screen.HOUSEHOLD}
         component={Household}
-        options={{ title: ScreenTitle.HOUSEHOLD }}
+        options={getFirstScreenOptions(ScreenTitle.HOUSEHOLD)}
       />
     </Stack.Navigator>
   );

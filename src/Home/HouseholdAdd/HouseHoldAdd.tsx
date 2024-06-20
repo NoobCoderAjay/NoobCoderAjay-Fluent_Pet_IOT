@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { StyleSheet, Text, View, Pressable, ScrollView } from "react-native";
 
-import TeacherForm from "./TeacherForm";
 import {
   NavigationProp,
   ParamListBase,
@@ -11,9 +10,10 @@ import { Screen } from "../../navigation/constants";
 import { BodyBold, Headline2 } from "src/components/common/Typography";
 import { AnimatedPressable } from "src/components/common";
 import PolygonImageContainer from "src/components/common/PolygonImageContainer";
-import LearnerForm from "./LearnerForm";
+
 import SafeAreaButtonBlock from "src/components/common/SafeAreaButtonBlock";
 import { PolygonShapePoints } from "src/components/common/helpers/constants";
+import { LearnerForm, TeacherForm } from "src/components/Household";
 
 type Props = {};
 
@@ -99,7 +99,7 @@ const HouseHoldAdd2 = (props: Props) => {
       <SafeAreaButtonBlock
         leftButtonText="Cancel"
         leftButtonOnPress={handleNavigation}
-        rightButtonText="Next"
+        rightButtonText="Save"
         rightButtonOnPress={handleNavigation}
         // errors={errors}
         safeAreaEnabled={true}

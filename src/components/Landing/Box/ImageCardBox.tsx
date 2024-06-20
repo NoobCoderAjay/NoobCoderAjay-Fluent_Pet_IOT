@@ -22,7 +22,7 @@ const ImageCardBox = (props: Props) => {
   const { title, id } = props;
   const navigation = useNavigation<NavigationProp<ParamListBase>>();
   const handleBtnPress = () => {
-    navigation.navigate(Screen.COURSE_SCREEN, { id });
+    navigation.navigate(Screen.COURSE_SCREEN);
   };
   return (
     <View>
