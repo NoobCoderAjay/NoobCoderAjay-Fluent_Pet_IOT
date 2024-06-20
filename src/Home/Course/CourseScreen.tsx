@@ -22,18 +22,31 @@ import { TouchableOpacity } from "react-native-gesture-handler";
 import { SizeV2 } from "src/theme/Size";
 import { FontArizona } from "src/components/common/Typography";
 import LessonBox from "./components/LessonBox";
+import {
+  NavigationProp,
+  ParamListBase,
+  useNavigation,
+} from "@react-navigation/native";
+import { Screen } from "@navigation/constants";
 
 const CourseScreen = () => {
+  const navigation = useNavigation<NavigationProp<ParamListBase>>();
+  const navigateBack = () => {
+    navigation.navigate(Screen.MODULE_SCREEN);
+  };
   const handlePress = () => {
     console.log("Button pressed");
   };
+
   const ICON_SIZE = SizeV2.L;
   return (
     <View className="flex-1 relative">
       <StatusBar style="light" />
       <ImageBackground source={BG} style={styles.imageContainer}>
         <View className="absolute flex-row justify-between items-center top-20 left-8 right-8">
-          <Feather name="chevron-left" size={24} color="#FFFFFF" />
+          <TouchableOpacity onPress={navigateBack}>
+            <Feather name="chevron-left" size={24} color="#FFFFFF" />
+          </TouchableOpacity>
           <Text className="text-white text-lg font-bold">Lesson 3</Text>
           <Ionicons name="notifications-outline" size={24} color="#FFFFFF" />
         </View>

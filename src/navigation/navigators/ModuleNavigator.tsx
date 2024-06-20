@@ -31,7 +31,11 @@ const ModuleNavigator = () => {
       <Stack.Screen
         name={Screen.MODULE_SCREEN}
         component={ModuleScreen}
-        options={getFirstScreenOptions(ScreenTitle.FLUENTPET_EDU)}
+        options={getFirstScreenOptions({
+          title: ScreenTitle.FLUENTPET_EDU,
+          showDrawerButton: true,
+          showNotificationIcon: true,
+        })}
       />
     </Stack.Navigator>
   );

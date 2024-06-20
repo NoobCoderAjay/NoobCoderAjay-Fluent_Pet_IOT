@@ -10,6 +10,7 @@ import ConnectStepThree from "src/Home/Hardware/ConnectStepThree";
 import ConnectSetupFour from "src/Home/Hardware/ConnectSetupFour";
 import ConnectSetupFive from "src/Home/Hardware/ConnectSetupFive";
 import { screenOptions } from "@navigation/options";
+import IconLeft from "@navigation/components/IconLeft";
 
 const Stack = createStackNavigator();
 const BaseRegisterNavigator = () => {
@@ -23,7 +24,9 @@ const BaseRegisterNavigator = () => {
       <Stack.Screen
         name={Screen.CONNECTION_SETUP_STEP_ONE}
         component={ConnectStepOne}
-        options={{ headerShown: false }}
+        options={({ navigation }) => ({
+          headerShown: false,
+        })}
       />
       <Stack.Screen
         name={Screen.CONNECTION_SETUP_STEP_TWO}

@@ -67,4 +67,6 @@ export enum Screen {
   CONNECTION_TO_BASE = "ConnectionToBase",
   HARDWARE_SCREEN = "Hardwarecreen",
   ACTIVITY = "ACTIVITY",
+
+  NOTIFICATION = "Notification",
 }

@@ -36,7 +36,10 @@ const DashboardNavigator = () => {
         name={Screen.ACTIVITY}
         //@ts-ignore
         component={ActivityScreen}
-        options={getFirstScreenOptions(ScreenTitle.ACTIVITY_SCREEN)}
+        options={getFirstScreenOptions({
+          title: ScreenTitle.ACTIVITY_SCREEN,
+          showDrawerButton: true,
+        })}
       />
     </Stack.Navigator>
   );

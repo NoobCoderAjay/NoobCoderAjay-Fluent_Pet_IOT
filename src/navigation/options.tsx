@@ -11,6 +11,7 @@ import HeaderImg from "../assets/images/header/HeaderImg.png";
 import { BackButton } from "./components";
 import { Image, StyleSheet } from "react-native";
 import { FontArizona } from "src/components/common/Typography";
+import IconLeft from "./components/IconLeft";
 const styles = StyleSheet.create({
   headerBackground: {
     flex: 1,
@@ -33,7 +34,7 @@ export const screenOptions: StackNavigationOptions = {
   },
 
   headerBackTitleVisible: false,
-  // headerBackImage: () => <BackButton androidMarginFix />,
+  headerBackImage: () => <IconLeft />,
   headerBackground: () => (
     <Image source={HeaderImg} style={styles.headerBackground} />
   ),

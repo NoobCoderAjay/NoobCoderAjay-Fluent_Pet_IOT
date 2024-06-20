@@ -1,22 +1,18 @@
-import { useNavigation } from '@react-navigation/core';
-import React from 'react';
-import { StyleSheet } from 'react-native';
+import { useNavigation } from "@react-navigation/core";
+import React from "react";
+import { StyleSheet } from "react-native";
 
-import { ArrowLeftIcon } from 'src/assets/icons';
-import { Colors } from 'src/theme/Colors';
+import { ArrowLeftIcon } from "src/assets/icons";
+import { Colors } from "src/theme/Colors";
 
-import NavigationButtonContainer from './NavigationButtonContainer';
+import NavigationButtonContainer from "./NavigationButtonContainer";
 
 interface Props {
   androidMarginFix?: boolean;
   onPress?(): void;
 }
 
-const BackButton: React.FC<Props> = ({
-  androidMarginFix = false,
-
-  onPress,
-}) => {
+const BackButton: React.FC<Props> = ({ androidMarginFix = false, onPress }) => {
   const { goBack } = useNavigation();
 
   return (
@@ -24,7 +20,8 @@ const BackButton: React.FC<Props> = ({
       side="left"
       androidMarginFix={androidMarginFix}
       onPress={onPress ?? goBack}
-      style={styles.buttonWrapper}>
+      style={styles.buttonWrapper}
+    >
       <ArrowLeftIcon color={Colors.WHITE} width={19} />
     </NavigationButtonContainer>
   );

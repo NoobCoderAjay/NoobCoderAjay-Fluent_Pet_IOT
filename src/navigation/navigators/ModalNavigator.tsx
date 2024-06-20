@@ -18,12 +18,14 @@ import { screenOptions } from "@navigation/options";
 
 import BaseRegisterNavigator from "./BaseRegisterNavigator";
 import CourseScreen from "src/Home/Course/CourseScreen";
+import NotificationScreen from "src/Home/Notifications/NotificationScreen";
 
 export type ModalStackParamList = {
   [Navigator.TAB_NAV]: NavigatorScreenParams<TabParamList>;
   [Navigator.ONBOARDING_NAV]: NavigatorScreenParams<BetaStackParamList>;
   [Screen.HOUSEHOLD_ADD]: NavigatorScreenParams<HouseholdStackParamList>;
   [Navigator.BASE_NAVIGATOR]: undefined;
+  [Screen.NOTIFICATION]: undefined;
 };
 
 export type ModalStackScreenProps<RouteName extends keyof ModalStackParamList> =
@@ -64,6 +66,11 @@ export const ModalNavigator = () => (
       name={Navigator.BASE_NAVIGATOR}
       component={BaseRegisterNavigator}
       options={{ title: ScreenTitle.BASE_REGISTRATION }}
+    />
+    <Stack.Screen
+      name={Screen.NOTIFICATION}
+      component={NotificationScreen}
+      options={{ title: ScreenTitle.NOTIFICATIONS_SCREEN }}
     />
   </Stack.Navigator>
 );

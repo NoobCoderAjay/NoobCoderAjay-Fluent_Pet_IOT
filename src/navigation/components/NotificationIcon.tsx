@@ -1,18 +1,24 @@
-import * as WebBrowser from "expo-web-browser";
 import React from "react";
-
 import { Ionicons } from "@expo/vector-icons";
-
 import NavigationButtonContainer from "./NavigationButtonContainer";
-import { View } from "react-native";
+import {
+  NavigationProp,
+  ParamListBase,
+  useNavigation,
+} from "@react-navigation/native";
+import { TouchableOpacity } from "react-native";
+import { Navigator, Screen } from "@navigation/constants";
 
 const NotificationIcon: React.FC = () => {
-  const onPress = async () => {
-    // await WebBrowser.openBrowserAsync('https://fluent.pet/collections/kits');
+  const navigation = useNavigation<NavigationProp<ParamListBase>>();
+  const onNotificationPress = async () => {
+    navigation.navigate(Navigator.MODAL, {
+      screen: Screen.NOTIFICATION,
+    });
   };
 
   return (
-    <NavigationButtonContainer side="right" onPress={onPress}>
+    <NavigationButtonContainer side="right" onPress={onNotificationPress}>
       <Ionicons name="notifications-outline" size={24} color="#006271" />
     </NavigationButtonContainer>
   );

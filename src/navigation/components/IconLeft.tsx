@@ -5,14 +5,17 @@ import { Feather } from "@expo/vector-icons";
 
 import NavigationButtonContainer from "./NavigationButtonContainer";
 import { View } from "react-native";
+import { useNavigation } from "@react-navigation/native";
 
-const IconLeft: React.FC = () => {
-  const onPress = async () => {
-    // await WebBrowser.openBrowserAsync('https://fluent.pet/collections/kits');
-  };
+interface Props {
+  androidMarginFix?: boolean;
+  onPress?(): void;
+}
+const IconLeft: React.FC<Props> = ({ onPress }) => {
+  const { goBack } = useNavigation();
 
   return (
-    <NavigationButtonContainer side="right" onPress={onPress}>
+    <NavigationButtonContainer side="left" onPress={onPress ?? goBack}>
       <Feather name="chevron-left" size={24} color="#006271" />
     </NavigationButtonContainer>
   );

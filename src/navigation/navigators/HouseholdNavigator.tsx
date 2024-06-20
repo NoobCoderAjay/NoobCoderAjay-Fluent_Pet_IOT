@@ -33,7 +33,10 @@ const HouseholdNavigator = () => {
       <Stack.Screen
         name={Screen.HOUSEHOLD}
         component={Household}
-        options={getFirstScreenOptions(ScreenTitle.HOUSEHOLD)}
+        options={getFirstScreenOptions({
+          title: ScreenTitle.HOUSEHOLD,
+          showDrawerButton: true,
+        })}
       />
     </Stack.Navigator>
   );

@@ -1,13 +1,13 @@
-import { Ionicons } from '@expo/vector-icons';
-import React from 'react';
-import { StyleSheet } from 'react-native';
+import { Ionicons } from "@expo/vector-icons";
+import React from "react";
+import { StyleSheet } from "react-native";
 
-import { CloseIcon } from 'src/assets/icons';
-import { Colors } from 'src/theme/Colors';
-import { Size } from 'src/theme/Size';
+import { CloseIcon } from "src/assets/icons";
+import { Colors } from "src/theme/Colors";
+import { Size } from "src/theme/Size";
 
-import AnimatedPressable from '../AnimatedPressable';
-import TextInput from './TextInput';
+import AnimatedPressable from "../AnimatedPressable";
+import TextInput from "./TextInput";
 
 interface Props {
   currentSearch: string;
@@ -27,7 +27,8 @@ const SearchBar: React.FC<Props> = ({
   const renderClearButton = () => (
     <AnimatedPressable
       style={styles.clearButtonContainer}
-      onPress={onClearButtonPress}>
+      onPress={onClearButtonPress}
+    >
       <CloseIcon width={15} />
     </AnimatedPressable>
   );
@@ -38,7 +39,7 @@ const SearchBar: React.FC<Props> = ({
 
   return (
     <TextInput
-      backgroundColor={Colors.GREY_LIGHT}
+      backgroundColor={Colors.LIGHT_WHITE}
       placeholder={placeholderText}
       autoCapitalize="none"
       autoCorrect={false}
@@ -55,7 +56,7 @@ export default SearchBar;
 
 const styles = StyleSheet.create({
   clearButtonContainer: {
-    position: 'absolute',
+    position: "absolute",
     right: Size.S,
     bottom: Size.S,
   },

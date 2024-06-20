@@ -33,6 +33,8 @@ export const LandingNavigator = () => (
       component={HomeScreen}
       options={getFirstScreenOptions({
         title: ScreenTitle.FLUENTPET,
+        showDrawerButton: true,
+        showNotificationIcon: true,
       })}
     />
 

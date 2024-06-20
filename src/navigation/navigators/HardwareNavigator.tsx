@@ -31,7 +31,10 @@ const HardWareNavigator = () => {
       <Stack.Screen
         name={Screen.HARDWARE_SCREEN}
         component={HardwareScreen}
-        options={getFirstScreenOptions(ScreenTitle.HARDWARE_SCREEN)}
+        options={getFirstScreenOptions({
+          title: ScreenTitle.HARDWARE_SCREEN,
+          showDrawerButton: true,
+        })}
       />
     </Stack.Navigator>
   );
