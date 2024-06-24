@@ -48,7 +48,7 @@ const Drawer = () => {
     {
       visible: true,
       iconLeft: <SettingsIcon />,
-      label: "ADVANCED TOOLS",
+      label: "SETTINGS",
       onPress: () => {
         closeDrawer();
         navigation.navigate(Navigator.HOME_NAV, {
@@ -86,7 +86,6 @@ const Drawer = () => {
   const closeDrawer = () => {
     navigation.dispatch(DrawerActions.closeDrawer());
   };
-
   // On smaller screens and if Bases Button is displayed
   // decrease spacing between items in the menu
   const spacingBetweenButtons =
@@ -148,19 +147,14 @@ const Drawer = () => {
         </View>
       </View>
       <TopButtons buttons={topButtons} marginBottom={spacingBetweenButtons} />
-      <Divider
-        marginBottom={spacingBetweenButtons}
-        width="100%"
-        height={1}
-        color={Colors.GREY}
-      />
+
       <DrawerButton
         fullWidth
         marginBottom={spacingBetweenButtons}
-        iconLeft={<LogoutIcon color={Colors.WHITE} />}
+        iconLeft={<LogoutIcon color={Colors.RED} />}
         label={"LOGOUT"}
-        color={Colors.PRIMARY}
-        textColor={Colors.WHITE}
+        color={Colors.WHITE}
+        textColor={Colors.RED}
         onPress={handleSignOut}
       />
     </ScrollView>
@@ -169,30 +163,12 @@ const Drawer = () => {
 
 export default Drawer;
 
-const FULL_NAME_FONT_SIZE = 24;
-const EMAIL_FONT_SIZE = 16;
-
 const styles = StyleSheet.create({
   container: {
     flex: 1,
   },
   contentContainer: { paddingHorizontal: Size.L, paddingBottom: Size.L },
-  avatar: {
-    marginTop: -Size.XS,
-    marginBottom: Size.XS,
-  },
-  userInfo: {
-    justifyContent: "center",
-    alignItems: "center",
-    paddingBottom: Size.M,
-  },
-  fullName: {
-    fontSize: FULL_NAME_FONT_SIZE,
-    color: Colors.PRIMARY_DARK,
-  },
-  email: {
-    fontSize: EMAIL_FONT_SIZE,
-  },
+
   closeButtonHolder: {
     left: -Size.L,
     width: "100%",

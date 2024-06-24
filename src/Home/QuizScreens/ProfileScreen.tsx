@@ -63,10 +63,10 @@ const ProfileScreen: React.FC = () => {
         <View className="justify-center items-center mt-5">
           <AnimatedPressable>
             <PolygonImageContainer
-              points={PolygonShapePoints.HEXAGON}
               imageLoaded={true}
               intialStyle={styles.polygonIntailContainer}
               isIntialPage
+              size={150}
             />
           </AnimatedPressable>
         </View>

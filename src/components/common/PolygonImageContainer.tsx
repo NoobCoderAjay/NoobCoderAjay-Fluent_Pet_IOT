@@ -10,79 +10,102 @@ import Svg, { Defs, Image, Mask, Polygon, Rect } from "react-native-svg";
 import { Colors } from "src/theme/Colors";
 import { SizeV2 } from "src/theme/Size";
 import { getNameIntial } from "./helpers/getNameIntial";
+import { PolygonShapePoints } from "./helpers/constants";
 
 interface PolygonImageContainerProps {
   imageSource?: any;
   pusherName?: string;
   imageLoaded: boolean;
   intialStyle?: ViewStyle;
-  points: string;
   isStatusShare?: boolean;
   isIntialPage?: boolean;
+  size?: number;
 }
 
 const PolygonImageContainer: React.FC<PolygonImageContainerProps> = ({
   imageSource,
   pusherName,
   imageLoaded,
-  points,
   isStatusShare = false,
   intialStyle = {},
   isIntialPage = false,
+  size = 150,
 }) => {
   const PENTAGONMASK = "pentagonMask";
+
+  const scalePoints = (points: string, scale: number): string => {
+    const originalWidth = 150;
+    const originalHeight = 145;
+
+    return points
+      .split(", ")
+      .map((point) => {
+        const [x, y] = point.split(" ").map(Number);
+        return `${(x / originalWidth) * size} ${(y / originalHeight) * size}`;
+      })
+      .join(", ");
+  };
+
+  const scaledPoints = scalePoints(PolygonShapePoints.HEXAGON, size / 150);
+
   return (
-    <View style={isIntialPage ? {} : styles.container}>
-      <Svg opacity={1} fillOpacity={1} width={imageSize} height={imageSize}>
+    <View
+      style={[
+        isIntialPage ? {} : styles.container,
+        { width: size, height: size },
+      ]}
+    >
+      <Svg width={size} height={size} viewBox={`0 0 ${size} ${size}`}>
         <Defs>
-          <Mask fillOpacity={1} id={PENTAGONMASK}>
-            <Polygon
-              opacity={1}
-              fillOpacity={1}
-              points={points}
-              fill={Colors.PRIMARY}
-            />
+          <Mask id={PENTAGONMASK}>
+            <Polygon points={scaledPoints} fill="white" />
           </Mask>
         </Defs>
         {imageSource ? (
           <>
             <Image
-              x={isStatusShare ? "-30" : "0"}
+              x={isStatusShare ? `${-size / 5}` : "0"}
               y="0"
-              width={imageSize}
-              height={imageSize}
+              width={size}
+              height={size}
               href={imageSource}
-              opacity={1}
               mask={`url(#${PENTAGONMASK})`}
             />
-            {!imageLoaded ? (
-              <View style={styles.imageLoader}>
-                <ActivityIndicator color={Colors.PRIMARY} />
-              </View>
-            ) : null}
+            {!imageLoaded && (
+              <ActivityIndicator
+                style={[styles.imageLoader, { top: size / 2, left: size / 2 }]}
+                color={Colors.PRIMARY}
+              />
+            )}
           </>
         ) : (
           <Rect
             x="0"
             y="0"
-            width={imageSize}
-            height={imageSize}
+            width={size}
+            height={size}
             fill={Colors.PRIMARY}
             mask={`url(#${PENTAGONMASK})`}
           />
         )}
       </Svg>
-      {!imageSource ? (
-        <View style={{ ...styles.intialContainer, ...intialStyle }}>
-          <Text style={styles.intialtext}>{getNameIntial(pusherName)}</Text>
+      {!imageSource && (
+        <View
+          style={[
+            styles.intialContainer,
+            intialStyle,
+            { width: size, height: size },
+          ]}
+        >
+          <Text style={[styles.intialtext, { fontSize: size / 3 }]}>
+            {getNameIntial(pusherName)}
+          </Text>
         </View>
-      ) : null}
+      )}
     </View>
   );
 };
 
-const imageSize = 150;
-const INTIAL_CONTAINER_SIZE = 200;
 const styles = StyleSheet.create({
   container: {
     position: "absolute",
@@ -90,18 +113,16 @@ const styles = StyleSheet.create({
   },
   intialContainer: {
     position: "absolute",
-    width: INTIAL_CONTAINER_SIZE,
-    height: INTIAL_CONTAINER_SIZE,
     justifyContent: "center",
     alignItems: "center",
   },
   intialtext: {
-    fontSize: SizeV2.X2_L,
+    color: Colors.WHITE,
   },
   imageLoader: {
     position: "absolute",
-    top: 50,
-    right: 65,
+    transform: [{ translateX: -12 }, { translateY: -12 }],
   },
 });
+
 export default PolygonImageContainer;

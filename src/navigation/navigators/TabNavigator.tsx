@@ -13,7 +13,11 @@ import {
 import { Colors } from "../../theme/Colors";
 import ModuleNavigator, { ModuleStackParamList } from "./ModuleNavigator";
 import { Navigator, ScreenTitle } from "@navigation/constants";
-import { LandingNavigator, LandingStackScreenProps } from "./LandingNavigator";
+import {
+  LandingNavigator,
+  LandingStackParamList,
+  LandingStackScreenProps,
+} from "./LandingNavigator";
 import HouseholdNavigator, {
   HouseholdStackParamList,
 } from "./HouseholdNavigator";
@@ -30,8 +34,7 @@ export type TabParamList = {
   [Navigator.HOUSEHOLD]: NavigatorScreenParams<HouseholdStackParamList>;
   [Navigator.ACTIVITY]: NavigatorScreenParams<DashboardStackParamList>;
   [Navigator.HARDWARE]: NavigatorScreenParams<HardwareStackParamList>;
-  //@ts-ignore
-  [Navigator.LANDING_NAV]: NavigatorScreenParams<LandingStackScreenProps>;
+  [Navigator.LANDING_NAV]: NavigatorScreenParams<LandingStackParamList>;
   [Navigator.MODULE_NAV]: NavigatorScreenParams<ModuleStackParamList>;
 };
 

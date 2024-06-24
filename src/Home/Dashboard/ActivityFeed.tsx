@@ -15,7 +15,7 @@ import AvatarTypeSpecific from "../../components/Avatar/AvatarTypeSpecific";
 
 import { Colors } from "../../theme/Colors";
 import { FontArizona } from "src/components/common/Typography";
-import { Divider } from "src/components/common";
+import { AnimatedPressable, Divider } from "src/components/common";
 import CustomSwitch from "src/components/common/SwitchButton";
 import SnoozeBottomSheetModal from "src/components/Dashboard/BottomSheetModel";
 import FormSelect from "../HouseholdAdd/FormSelect";
@@ -28,6 +28,7 @@ import { useActionSheet } from "@expo/react-native-action-sheet";
 import { Navigator, Screen } from "@navigation/constants";
 import CustomButton from "src/components/common/CustomButton";
 import DashboardActionSheet from "src/components/Dashboard/DashboardActionSheet";
+import PolygonImageContainer from "src/components/common/PolygonImageContainer";
 
 type Props = {
   navigation: any;
@@ -130,11 +131,20 @@ const ActivityFeed = (props: Props) => {
 
   return (
     <>
-      <View className="bg-[#E2F3FB] flex-1">
+      <View className="bg-[#FFFFFF] flex-1">
         <View className="bg-white m-0 p-5 w-auto h-full rounded-t-[22px]">
           <View className="border border-[#E4E7EC] rounded-[25px] p-2 flex-row items-center">
             <View className="flex-row">
-              <AvatarTypeSpecific name={"H"} pushers={[]} size={80} />
+              <View className="mt-3">
+                <AnimatedPressable>
+                  <PolygonImageContainer
+                    imageLoaded={true}
+                    // intialStyle={styles.polygonIntailContainer}
+                    isIntialPage
+                    size={70}
+                  />
+                </AnimatedPressable>
+              </View>
               <View className="flex-column ml-4 mt-4">
                 <Text
                   className={`text-[20px] font-bold leading-[24.66px] text-left text-[#333333]`}
@@ -143,7 +153,7 @@ const ActivityFeed = (props: Props) => {
                   Cookie
                 </Text>
 
-                <View className="flex-row items-center gap-4 mt-2 ml-0.5">
+                <View className="flex-row items-center gap-4 mt-2 ml-0.5 mb-2">
                   <StatisticItem value="23" label="Days" />
                   <View className="w-[2px] h-8 bg-[#E4E7EC]" />
                   <StatisticItem value="08" label="Buttons" />

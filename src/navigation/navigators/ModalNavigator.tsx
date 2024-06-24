@@ -83,6 +83,7 @@ export const ModalNavigator = () => (
     />
     <Stack.Screen
       name={Screen.JOURNAL_ENTRY_SCREEN}
+      //@ts-ignore
       component={JournalEntryScreen}
       options={{ title: ScreenTitle.JOURNAL_ENTRY }}
     />

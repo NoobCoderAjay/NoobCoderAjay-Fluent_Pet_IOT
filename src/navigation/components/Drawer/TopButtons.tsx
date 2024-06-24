@@ -17,7 +17,7 @@ interface Props {
 }
 
 const SHARED_BUTTON_PROPS = {
-  color: Colors.SECONDARY_LIGHT,
+  color: Colors.WHITE,
   textColor: Colors.PRIMARY_DARK,
   fullWidth: true,
 };

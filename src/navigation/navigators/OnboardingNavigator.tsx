@@ -26,8 +26,6 @@ export type BetaStackParamList = {
   [Screen.GOAL_SCREEN]: undefined;
   [Screen.TEST_SCREEN]: undefined;
   [Screen.SETUP_SCREEN]: undefined;
-
-  [Navigator.TAB_NAV]: undefined;
 };
 export type BaseStackScreenProps<RouteName extends keyof BetaStackParamList> =
   CompositeScreenProps<
@@ -138,12 +136,6 @@ const OnboardingNavigator = () => {
             />
           ),
         })}
-      />
-      <Stack.Screen
-        //@ts-ignore
-        name={Navigator.TAB_NAV}
-        component={TabNavigator}
-        options={{ headerShown: false }}
       />
     </Stack.Navigator>
   );

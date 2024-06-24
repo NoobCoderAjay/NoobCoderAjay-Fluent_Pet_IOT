@@ -11,17 +11,21 @@ import { Screen } from "../../navigation/constants";
 import { TouchableOpacity } from "react-native-gesture-handler";
 import { FontArizona } from "src/components/common/Typography";
 import CustomButton from "src/components/common/CustomButton";
+import { AnimatedPressable } from "src/components/common";
+import PolygonImageContainer from "src/components/common/PolygonImageContainer";
 
 type Props = {};
 const Member = ({ name, role }: { name: string; role: string }) => (
   <View className="flex-row px-3 mt-5">
-    <AvatarTypeSpecific
-      name={name[0]}
-      pushers={[]}
-      size={60}
-      style={{ marginTop: 6 }}
-    />
-    <View className="flex-col ml-3 mt-3">
+    <AnimatedPressable>
+      <PolygonImageContainer
+        imageLoaded={true}
+        // intialStyle={styles.polygonIntailContainer}
+        isIntialPage
+        size={60}
+      />
+    </AnimatedPressable>
+    <View className="flex-col ml-3 mt-1">
       <Text
         className={`text-[20px] font-bold text-[#333333] font-[${FontArizona.BOLD}]`}
       >
@@ -44,7 +48,14 @@ const Household: React.FC<Props> = () => {
   return (
     <View className="p-5 bg-white h-full">
       <View className="flex-row px-3">
-        <AvatarTypeSpecific name="OK" pushers={[]} />
+        <AnimatedPressable>
+          <PolygonImageContainer
+            imageLoaded={true}
+            // intialStyle={styles.polygonIntailContainer}
+            isIntialPage
+            size={70}
+          />
+        </AnimatedPressable>
         <View className="flex-col gap-2 ml-2">
           <Text
             className={`font-bold text-[#006271] font-[${FontArizona.BOLD}] text-2xl`}

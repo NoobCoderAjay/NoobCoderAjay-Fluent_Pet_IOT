@@ -1,6 +1,8 @@
 import React from "react";
 import { StyleSheet, Text, TouchableOpacity, View } from "react-native";
 import AvatarTypeSpecific from "src/components/Avatar/AvatarTypeSpecific";
+import { AnimatedPressable } from "src/components/common";
+import PolygonImageContainer from "src/components/common/PolygonImageContainer";
 import { FontArizona } from "src/components/common/Typography";
 import { SizeV2 } from "src/theme/Size";
 
@@ -17,7 +19,15 @@ const LearnerActivityBox = () => {
         <Text style={styles.activityText}>Learner Activity</Text>
 
         <View style={styles.activityDetails}>
-          <AvatarTypeSpecific name={"H"} pushers={[]} size={40} />
+          {/* <AvatarTypeSpecific name={"H"} pushers={[]} size={40} /> */}
+          <AnimatedPressable>
+            <PolygonImageContainer
+              imageLoaded={true}
+              // intialStyle={styles.polygonIntailContainer}
+              isIntialPage
+              size={50}
+            />
+          </AnimatedPressable>
           <View style={styles.activityTextContainer}>
             <Text style={styles.recentText}>Recent Presses</Text>
             {/* <View style={styles.buttonContainer}>

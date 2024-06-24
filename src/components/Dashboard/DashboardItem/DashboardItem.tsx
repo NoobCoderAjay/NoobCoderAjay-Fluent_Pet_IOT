@@ -17,6 +17,7 @@ import { StarButton } from "./StarButton";
 import DashboardButtons from "./DashboardButtons";
 import { Button as ButtonType } from "src/model/interaction";
 import OccurredAt from "./OccurredAt";
+import PolygonImageContainer from "src/components/common/PolygonImageContainer";
 
 const CHECKMARK_ICON_SIZE = 35;
 const CHECKMARK_BACKGROUND_FILL_SIZE = CHECKMARK_ICON_SIZE * 0.6;
@@ -294,7 +295,13 @@ const DashboardItem: React.FC<Props> = ({
         onLongPress={onLongPress}
       >
         <View style={styles.avatarContainer}>
-          <AvatarTypeSpecific name={"H"} pushers={[]} size={70} />
+          {/* <AvatarTypeSpecific name={"H"} pushers={[]} size={70} /> */}
+          <PolygonImageContainer
+            imageLoaded={true}
+            // intialStyle={styles.polygonIntailContainer}
+            isIntialPage
+            size={60}
+          />
         </View>
         <View style={styles.detailsContainer}>
           <OccurredAt datetime={"Jan 18th | 2.30 PM"} />

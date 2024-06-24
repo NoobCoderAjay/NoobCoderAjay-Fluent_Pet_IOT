@@ -29,10 +29,6 @@ const RootNavigator: React.FC<Props> = ({ authToken }) => {
   return (
     <NavigationContainer>
       <Stack.Navigator screenOptions={{ headerShown: false }}>
-        {/* <Stack.Screen
-          name={Navigator.ONBOARDING_NAV}
-          component={OnboardingNavigator}
-        /> */}
         <Stack.Screen
           name={Navigator.HOME_NAV}
           component={HomeNavigator}
