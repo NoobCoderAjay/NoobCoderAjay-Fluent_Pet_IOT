@@ -17,6 +17,7 @@ interface CustomButtonProps extends TouchableOpacityProps {
   onPress?: () => void;
   errors?: Record<string, any>;
   borderColor?: string;
+  backgroundColor?: string;
 }
 
 const CustomButton: React.FC<CustomButtonProps> = ({
@@ -25,11 +26,12 @@ const CustomButton: React.FC<CustomButtonProps> = ({
   style,
   textStyle,
   borderColor = "#CCCCCC",
+  backgroundColor = "#FFFFFF",
   ...props
 }) => {
   return (
     <TouchableOpacity
-      style={[styles.button, style, { borderColor }]} // Apply borderColor
+      style={[styles.button, { borderColor, backgroundColor }, style]}
       onPress={onPress}
       {...props}
     >
@@ -47,7 +49,6 @@ const styles = StyleSheet.create({
     borderRadius: 15,
     borderWidth: 1,
     marginRight: 10,
-    backgroundColor: "#FFFFFF",
   },
   buttonText: {
     fontSize: 16,

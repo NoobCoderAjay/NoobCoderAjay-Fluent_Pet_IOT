@@ -14,7 +14,7 @@ import BaseButtonThree from "../../assets/images/baseImages/BaseButtonThree.png"
 
 import { NavigationProp, ParamListBase } from "@react-navigation/native";
 import CustomButton from "src/components/common/CustomButton";
-import { Screen } from "@navigation/constants";
+import { Navigator, Screen } from "@navigation/constants";
 import { Colors } from "src/theme/Colors";
 
 interface ConnectionSuccessModalProps {
@@ -64,7 +64,14 @@ const ConnectionSuccessModal: React.FC<ConnectionSuccessModalProps> = ({
                 <CustomButton
                   onPress={() => {
                     onClose();
-                    navigation.navigate(Screen.PROFILE_SCREEN);
+                    navigation.navigate(Navigator.ONBOARDING_NAV, {
+                      screen: Screen.PROFILE_SCREEN,
+                      // params: {
+                      //   baseName: "Greenroom",
+                      //   baseSerialNumber: "22410119292B",
+                      //   batteryLevel: "80%",
+                      // },
+                    });
                   }}
                   text="Finish"
                 />

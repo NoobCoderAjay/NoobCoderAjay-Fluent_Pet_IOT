@@ -95,17 +95,24 @@ const TimeSelectModal: React.FC<TimeSelectModalProps> = ({
       animationType="fade"
       onRequestClose={onClose}
     >
-      <View style={styles.container}>
-        <View style={styles.modal}>
+      <View className="flex-1 justify-center items-center bg-[#0000008A] bg-opacity-50">
+        <View className="bg-white p-5 rounded-lg items-center">
           <Image source={Clock} />
-          <Text style={styles.heading}>Choose Time</Text>
-          <Text style={styles.subHeading}>
+          <Text
+            className="font-bold text-gray-800 text-lg mt-2"
+            // style={{ fontFamily: FontArizona.BOLD }}
+          >
+            Choose Time
+          </Text>
+          <Text className="font-normal text-gray-600 text-base">
             Choose a time that is appropriate
           </Text>
-          <Text style={styles.subHeading}>to set a daily reminder</Text>
-          <View style={styles.timeContainer}>
-            <View style={styles.hoursContainer}>
-              <View style={styles.timeBox}>
+          <Text className="font-normal text-gray-600 text-base">
+            to set a daily reminder
+          </Text>
+          <View className="flex-row mt-5">
+            <View className="flex flex-col">
+              <View className="border border-gray-200 rounded-lg w-10 h-10 justify-center items-center mr-5">
                 <Text
                   style={styles.time}
                   onPress={() => {
@@ -123,8 +130,8 @@ const TimeSelectModal: React.FC<TimeSelectModalProps> = ({
                 </ScrollView>
               )}
             </View>
-            <View style={styles.minuteContainer}>
-              <View style={styles.timeBox}>
+            <View className="flex flex-col ">
+              <View className="border border-gray-200 rounded-lg w-10 h-10 justify-center items-center mr-5">
                 <Text
                   style={styles.time}
                   onPress={() => {
@@ -142,8 +149,8 @@ const TimeSelectModal: React.FC<TimeSelectModalProps> = ({
                 </ScrollView>
               )}
             </View>
-            <View style={styles.ampmContainer}>
-              <View style={styles.timeBox}>
+            <View className="flex flex-col ">
+              <View className="border border-gray-200 rounded-lg w-10 h-10 justify-center items-center">
                 <Text
                   style={styles.time}
                   onPress={() => {
@@ -158,18 +165,21 @@ const TimeSelectModal: React.FC<TimeSelectModalProps> = ({
               {selectedAmPm && renderAmPmOptions()}
             </View>
           </View>
-          <View style={styles.infoContainer}>
-            <View style={styles.infoIcon}>
-              <Feather name="info" size={20} color="#B3B3B3" />
-            </View>
+          <View className="flex-row items-center mt-5">
+            <Feather name="info" size={20} color="#C5CEE0" />
             <View style={styles.infoText}>
-              <Text style={styles.infoTextContent}>
+              <Text className="text-[#C5CEE0] text-[12px] mt-1.5 ">
                 You can change this at any time in settings
               </Text>
             </View>
           </View>
-          <TouchableOpacity style={styles.saveButton} onPress={onClose}>
-            <Text style={styles.saveButtonText}>Save</Text>
+          <TouchableOpacity
+            className="bg-[#006271] py-3 px-36 rounded-[16px] mt-5"
+            onPress={onClose}
+          >
+            <Text className="text-white text-base font-bold text-center">
+              Save
+            </Text>
           </TouchableOpacity>
         </View>
       </View>
@@ -178,42 +188,6 @@ const TimeSelectModal: React.FC<TimeSelectModalProps> = ({
 };
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    justifyContent: "center",
-    alignItems: "center",
-    backgroundColor: "rgba(0, 0, 0, 0.5)",
-  },
-  modal: {
-    backgroundColor: "white",
-    padding: 20,
-    borderRadius: 8,
-    alignItems: "center",
-  },
-  heading: {
-    fontWeight: "700",
-    color: "#333333",
-    fontSize: 20,
-    marginTop: 10,
-  },
-  subHeading: {
-    fontWeight: "400",
-    color: "#666666",
-    fontSize: 14,
-  },
-  timeContainer: {
-    flexDirection: "row",
-    marginTop: 20,
-  },
-  timeBox: {
-    borderColor: "#3333331A",
-    borderWidth: 1,
-    borderRadius: 8,
-    width: 43,
-    height: 43,
-    justifyContent: "center",
-    marginRight: 20,
-  },
   time: {
     fontSize: 20,
     color: "#006271",
@@ -237,42 +211,11 @@ const styles = StyleSheet.create({
     padding: 5,
     fontWeight: "700",
   },
-  infoContainer: {
-    marginTop: 20,
-    display: "flex",
-    flexDirection: "row",
-    alignItems: "center",
-  },
-  infoIcon: {
-    alignContent: "center",
-  },
+
   infoText: {
     marginLeft: 10,
     marginBottom: 7,
   },
-  infoTextContent: {
-    color: "#B3B3B3",
-    fontWeight: "400",
-    alignContent: "center",
-    marginTop: 3,
-    fontSize: 12,
-  },
-  saveButton: {
-    backgroundColor: "#006271",
-    paddingVertical: 13,
-    paddingHorizontal: 170,
-    borderRadius: 15,
-    marginTop: 20,
-  },
-  saveButtonText: {
-    color: "#fff",
-    fontSize: 14,
-    fontWeight: "bold",
-    textAlign: "center",
-  },
-  hoursContainer: { flexDirection: "column" },
-  minuteContainer: { flexDirection: "column" },
-  ampmContainer: { flexDirection: "column" },
 });
 
 export default TimeSelectModal;

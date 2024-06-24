@@ -23,6 +23,7 @@ const ProfileScreen: React.FC = () => {
     navigationFunction.navigate(Navigator.HARDWARE, {
       screen: Screen.BASE_SETUP_PERMISSIONS,
     });
+    setSwitchValue(false);
   };
 
   const navigateToNextScreen = () => {
@@ -76,10 +77,7 @@ const ProfileScreen: React.FC = () => {
               Do you have FluentPet connect smart buttons{"\n"}you need to
               setup?
             </Text>
-            <CustomSwitch
-              onChange={handleSwitchChange}
-              initialValue={switchValue}
-            />
+            <CustomSwitch onChange={handleSwitchChange} value={switchValue} />
           </View>
         </View>
       </ScrollView>

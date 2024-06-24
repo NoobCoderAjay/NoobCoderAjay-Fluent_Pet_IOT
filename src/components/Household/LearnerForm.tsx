@@ -29,15 +29,17 @@ import { FontArizona } from "src/components/common/Typography";
 
 interface Props {
   learnerTypesForSelect: any[];
-  subjectName: string;
+  subjectName?: string;
   species: any;
   subType: string;
   language: string;
+  researchId: string;
   birthDate?: Date;
   trainingDate?: Date;
   setSpecies: Dispatch<SetStateAction<any>>;
   setSubType: Dispatch<SetStateAction<string>>;
   setLanguage: Dispatch<SetStateAction<string>>;
+  setResearchId: Dispatch<SetStateAction<string>>;
   setSubjectName: Dispatch<SetStateAction<string>>;
   onBirthDateSelect(date: Date): void;
   onTrainingDateSelect(date: Date): void;
@@ -49,11 +51,13 @@ const LearnerForm: React.FC<Props> = ({
   species,
   subType,
   language,
+  researchId,
   birthDate,
   trainingDate,
   setSpecies,
   setSubType,
   setLanguage,
+  setResearchId,
   setSubjectName,
   onBirthDateSelect,
   onTrainingDateSelect,
@@ -197,11 +201,11 @@ const LearnerForm: React.FC<Props> = ({
           <TextInput
             marginBottom={Size.XS}
             placeholder="Research Participant ID"
-            onChangeText={undefined}
+            onChangeText={setResearchId}
             autoCapitalize="none"
             returnKeyType="next"
             returnKeyLabel="next"
-            value={undefined}
+            value={researchId}
             backgroundColor={Colors.LIGHT_WHITE}
           />
           <Select

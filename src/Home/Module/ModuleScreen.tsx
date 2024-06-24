@@ -112,7 +112,7 @@ const ModuleScreen = (_props: Props) => {
 
 export default ModuleScreen;
 const screenHeight = Dimensions.get("window").height;
-const paddingBottom = screenHeight * 0.1;
+const paddingBottom = screenHeight * 0.11;
 
 const styles = StyleSheet.create({
   scrollViewContent: {

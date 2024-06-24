@@ -84,9 +84,10 @@ const GoalScreen: React.FC = () => {
               icon={ClockSmallIcon}
               height={INPUT_FIELD_HEIGHT}
               placeholder="Time"
-              onPress={() => {
-                setDateTimePickerVisible(true);
-              }}
+              // onPress={() => {
+              //   setDateTimePickerVisible(true);
+              // }}
+              onPress={toggleModal}
               backgroundColor={Colors.LIGHT_WHITE}
               value={""}
             />

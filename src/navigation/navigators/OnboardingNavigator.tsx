@@ -48,7 +48,7 @@ const OnboardingNavigator = () => {
           headerRight: () => (
             <SkipButton
               onPress={() => {
-                navigation.navigate(Screen.GOAL_SCREEN);
+                navigation.navigate(Screen.INFORMATION_SCREEN);
               }}
             />
           ),

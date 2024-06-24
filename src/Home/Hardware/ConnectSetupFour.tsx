@@ -1,4 +1,4 @@
-import { StyleSheet, Text, View } from "react-native";
+import { ScrollView, StyleSheet, Text, View } from "react-native";
 import React from "react";
 
 import { SimpleLineIcons } from "@expo/vector-icons";
@@ -27,7 +27,7 @@ const ConnectSetupFour = (props: Props) => {
   };
   return (
     <>
-      <View className="flex-1 p-5 bg-white">
+      <ScrollView className="flex-1 p-5 bg-white">
         <Title1 v2 color={Colors.BLACK} marginBottom={SizeV2.S}>
           Registering your base
         </Title1>
@@ -51,7 +51,7 @@ const ConnectSetupFour = (props: Props) => {
             Tap here for troubleshooting support.
           </Text>
         </View>
-      </View>
+      </ScrollView>
       <SafeAreaButtonBlock
         leftButtonText="Cancel"
         leftButtonOnPress={handleBackBtnPress}

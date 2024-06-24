@@ -69,4 +69,5 @@ export enum Screen {
   ACTIVITY = "ACTIVITY",
 
   NOTIFICATION = "Notification",
+  JOURNAL_ENTRY_SCREEN = "JourneyEntry",
 }

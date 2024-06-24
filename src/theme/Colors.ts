@@ -31,4 +31,5 @@ export enum Colors {
   LIGHT_BLUE = "#E1F4FB",
   BLUE_NEW = "#006271",
   GREEN_NEW = "#E5F4F5",
+  LIGHT_BLUE_NEW = "#3692A1",
 }

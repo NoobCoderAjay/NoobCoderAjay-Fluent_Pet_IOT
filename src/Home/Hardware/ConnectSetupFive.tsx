@@ -1,10 +1,9 @@
-import { StyleSheet, Text, View } from "react-native";
+import { ScrollView, StyleSheet, Text, View } from "react-native";
 import React, { useRef, useState } from "react";
 
 import { SimpleLineIcons } from "@expo/vector-icons";
 
-// import { lottieJSON } from "../assets/lottie";
-// import Lottie from "lottie-react-native";
+import Lottie from "lottie-react-native";
 import {
   NavigationProp,
   ParamListBase,
@@ -16,6 +15,7 @@ import { Body } from "src/components/common/Typography";
 import { SCREEN_WIDTH, SizeV2, ViewportSize } from "src/theme/Size";
 import CustomButton from "src/components/common/CustomButton";
 import { Colors } from "src/theme/Colors";
+import { lottieJSON } from "src/assets/lottie";
 
 type Props = {};
 
@@ -32,7 +32,7 @@ const ConnectSetupFive = (props: Props) => {
 
   return (
     <>
-      <View className="flex-1 p-5 bg-white">
+      <ScrollView className="flex-1 p-5 bg-white">
         <Title1 v2 color={Colors.BLACK} marginBottom={SizeV2.S}>
           Step 5: Firmware Update
         </Title1>
@@ -47,19 +47,19 @@ const ConnectSetupFive = (props: Props) => {
           {"\n\n"}
           Now your Base is ready to link new Buttons!
         </Body>
-        {/* <Lottie
+        <Lottie
           autoPlay
           ref={animation}
           style={styles.lottieView}
           source={lottieJSON.updating}
-        /> */}
+        />
         <View className="flex-row mt-10 justify-center">
           <SimpleLineIcons name="question" size={20} color={Colors.BLUE_NEW} />
           <Text className="ml-2 font-bold text-[#006271]">
             Tap here for troubleshooting support.
           </Text>
         </View>
-      </View>
+      </ScrollView>
       <View className="absolute bottom-5 px-5 w-full bg-white">
         <CustomButton
           text="I’ve waited a minute"

@@ -1,27 +1,23 @@
-import React, { useState } from 'react';
-import { StyleSheet, TouchableOpacity, View } from 'react-native';
+import React from "react";
+import { StyleSheet, TouchableOpacity, View } from "react-native";
 
 type Props = {
   onChange: (value: boolean) => void;
-  initialValue?: boolean;
+  value: boolean;
 };
 
-const CustomSwitch: React.FC<Props> = ({ onChange, initialValue = false }) => {
-  const [isOn, setIsOn] = useState(initialValue);
-
+const CustomSwitch: React.FC<Props> = ({ onChange, value }) => {
   const toggleSwitch = () => {
-    const newValue = !isOn;
-    setIsOn(newValue);
-    onChange(newValue);
+    onChange(!value);
   };
 
   return (
     <TouchableOpacity onPress={toggleSwitch}>
-      <View style={[styles.switch, isOn ? styles.switchOn : styles.switchOff]}>
+      <View style={[styles.switch, value ? styles.switchOn : styles.switchOff]}>
         <View
           style={[
             styles.innerCircle,
-            isOn ? styles.innerCircleOn : styles.innerCircleOff,
+            value ? styles.innerCircleOn : styles.innerCircleOff,
           ]}
         />
       </View>
@@ -34,21 +30,21 @@ const styles = StyleSheet.create({
     width: 40,
     height: 20,
     borderRadius: 10,
-    backgroundColor: '#CCCCCC',
-    justifyContent: 'center',
+    backgroundColor: "#CCCCCC",
+    justifyContent: "center",
     paddingHorizontal: 2,
   },
   switchOn: {
-    backgroundColor: '#006271',
+    backgroundColor: "#006271",
   },
   switchOff: {
-    backgroundColor: '#8D9394',
+    backgroundColor: "#8D9394",
   },
   innerCircle: {
     width: 16,
     height: 16,
     borderRadius: 8,
-    backgroundColor: '#FFFFFF',
+    backgroundColor: "#FFFFFF",
   },
   innerCircleOn: {
     transform: [{ translateX: 20 }],

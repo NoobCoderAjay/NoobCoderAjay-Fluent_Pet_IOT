@@ -9,7 +9,7 @@ import {
 import * as WebBrowser from "expo-web-browser";
 
 import React, { useContext } from "react";
-import { Dimensions, StyleSheet, View, ScrollView } from "react-native";
+import { Dimensions, StyleSheet, View, ScrollView, Text } from "react-native";
 import { useSafeAreaInsets } from "react-native-safe-area-context";
 
 import { Navigator, Screen } from "../../constants";
@@ -24,6 +24,8 @@ import Avatar from "src/components/Avatar/Avatar";
 import { AvatarSize } from "src/components/Avatar/constants/AvatarSize";
 import { Divider } from "src/components/common";
 import CloseButton from "../CloseButton";
+import AvatarTypeSpecific from "src/components/Avatar/AvatarTypeSpecific";
+import { FontArizona } from "src/components/common/Typography";
 
 const { width } = Dimensions.get("window");
 export const DRAWER_WIDTH = width * 0.8;
@@ -103,25 +105,25 @@ const Drawer = () => {
           onPress={closeDrawer}
         />
       </View>
-      <View style={styles.userInfo}>
-        <Avatar
+      {/* <View style={styles.userInfo}> */}
+      {/* <Avatar
           size={AvatarSize.LARGE}
           name=""
           // imageUri={globalState.user.avatar}
           style={styles.avatar}
-        />
-        {/* {globalState.user && (
+        /> */}
+      {/* {globalState.user && (
           <Title1 align="center" style={styles.fullName}>
             {getUserName(globalState.user)}
           </Title1>
         )} */}
-        <Divider
+      {/* <Divider
           marginTop={Size.XS}
           marginBottom={Size.XS}
           color={Colors.PRIMARY}
           height={2}
-        />
-        {/* {globalState.user && (
+        /> */}
+      {/* {globalState.user && (
           <HeadlineLight
             align="center"
             marginBottom={Size.S}
@@ -129,6 +131,21 @@ const Drawer = () => {
             {globalState.user.email}
           </HeadlineLight>
         )} */}
+      {/* </View> */}
+      <View className="flex-row mt-5 mb-5 border-[#0000001A] border-2 rounded-[25px] p-4 items-center justify-center">
+        <AvatarTypeSpecific name={"H"} pushers={[]} size={60} />
+        <View className="flex-column ml-4 mt-0">
+          <Text
+            className={`text-[20px] font-bold font-[${FontArizona.BOLD}] leading-[24.66px] text-left text-[#006271]`}
+          >
+            Sandra Hensly
+          </Text>
+          <Text
+            className={`text-[12px] font-bold font-[${FontArizona.BOLD}] leading-[14.8px] text-left text-[#006271] mt-1.5`}
+          >
+            Joined since July 15, 2023
+          </Text>
+        </View>
       </View>
       <TopButtons buttons={topButtons} marginBottom={spacingBetweenButtons} />
       <Divider

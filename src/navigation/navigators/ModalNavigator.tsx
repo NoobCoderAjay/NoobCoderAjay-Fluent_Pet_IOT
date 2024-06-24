@@ -19,6 +19,8 @@ import { screenOptions } from "@navigation/options";
 import BaseRegisterNavigator from "./BaseRegisterNavigator";
 import CourseScreen from "src/Home/Course/CourseScreen";
 import NotificationScreen from "src/Home/Notifications/NotificationScreen";
+import LogScreen from "src/Home/Log/LogScreen";
+import JournalEntryScreen from "src/Home/JournalEntry/JournalEntryScreen";
 
 export type ModalStackParamList = {
   [Navigator.TAB_NAV]: NavigatorScreenParams<TabParamList>;
@@ -26,6 +28,8 @@ export type ModalStackParamList = {
   [Screen.HOUSEHOLD_ADD]: NavigatorScreenParams<HouseholdStackParamList>;
   [Navigator.BASE_NAVIGATOR]: undefined;
   [Screen.NOTIFICATION]: undefined;
+  [Screen.LOG]: undefined;
+  [Screen.JOURNAL_ENTRY_SCREEN]: undefined;
 };
 
 export type ModalStackScreenProps<RouteName extends keyof ModalStackParamList> =
@@ -71,6 +75,16 @@ export const ModalNavigator = () => (
       name={Screen.NOTIFICATION}
       component={NotificationScreen}
       options={{ title: ScreenTitle.NOTIFICATIONS_SCREEN }}
+    />
+    <Stack.Screen
+      name={Screen.LOG}
+      component={LogScreen}
+      options={{ title: ScreenTitle.LOG }}
+    />
+    <Stack.Screen
+      name={Screen.JOURNAL_ENTRY_SCREEN}
+      component={JournalEntryScreen}
+      options={{ title: ScreenTitle.JOURNAL_ENTRY }}
     />
   </Stack.Navigator>
 );

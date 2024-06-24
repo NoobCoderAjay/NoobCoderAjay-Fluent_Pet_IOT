@@ -1,12 +1,5 @@
 import React from "react";
-import {
-  Image,
-  Modal,
-  StyleSheet,
-  Text,
-  TouchableOpacity,
-  View,
-} from "react-native";
+import { Image, Modal, Text, TouchableOpacity, View } from "react-native";
 
 //@ts-ignore
 import SuccessPic from "../../../assets/images/shareModal/SuccessPic.png";
@@ -28,57 +21,27 @@ const CustomSuccessModal: React.FC<CustomModalProps> = ({
       animationType="fade"
       onRequestClose={onClose}
     >
-      <View style={styles.modalContainer}>
-        <View style={styles.modalContent}>
+      <View className="flex-1 justify-center items-center bg-[#0000008A] bg-opacity-50">
+        <View className="bg-white p-5 rounded-lg items-center">
           <Image source={SuccessPic} />
-          <Text style={styles.congratulationText}>Congratulations</Text>
-          <Text style={styles.modalText}>Your account has been created.</Text>
-          <TouchableOpacity style={styles.successButton} onPress={onClose}>
-            <Text style={styles.successButtonText}>Let’s Go</Text>
+          <Text className="text-gray-800 text-xl font-bold">
+            Congratulations
+          </Text>
+          <Text className="text-gray-600 text-base mb-5">
+            Your account has been created.
+          </Text>
+          <TouchableOpacity
+            className="bg-[#006271] py-3 px-36 rounded-[15px] mt-5"
+            onPress={onClose}
+          >
+            <Text className="text-white text-base font-bold text-center">
+              Let’s Go
+            </Text>
           </TouchableOpacity>
         </View>
       </View>
     </Modal>
   );
 };
-
-const styles = StyleSheet.create({
-  modalContainer: {
-    flex: 1,
-    justifyContent: "center",
-    alignItems: "center",
-    backgroundColor: "rgba(0, 0, 0, 0.5)",
-  },
-  modalContent: {
-    backgroundColor: "white",
-    padding: 20,
-    borderRadius: 8,
-    alignItems: "center",
-  },
-  congratulationText: {
-    color: "#333333",
-    fontSize: 20,
-    fontFamily: FontArizona.BOLD,
-  },
-  modalText: {
-    color: "#666666",
-    fontSize: 14,
-    marginBottom: 20,
-    fontFamily: FontArizona.REGULAR,
-  },
-  successButton: {
-    backgroundColor: "#006271",
-    paddingVertical: 13,
-    paddingHorizontal: 150,
-    borderRadius: 15,
-    marginTop: 20,
-  },
-  successButtonText: {
-    color: "#FFFFFF",
-    fontSize: 14,
-    fontFamily: FontArizona.BOLD,
-    textAlign: "center",
-  },
-});
 
 export default CustomSuccessModal;

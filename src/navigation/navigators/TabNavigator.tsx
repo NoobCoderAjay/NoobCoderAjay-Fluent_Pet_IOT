@@ -18,14 +18,13 @@ import HouseholdNavigator, {
   HouseholdStackParamList,
 } from "./HouseholdNavigator";
 import HardWareNavigator, { HardwareStackParamList } from "./HardwareNavigator";
-import ActivityScreen from "src/Home/Dashboard/ActivityFeed";
 import DashboardNavigator, {
   DashboardStackParamList,
 } from "./DashboardNavigator";
 import { NavigatorScreenParams } from "@react-navigation/native";
 import { CompositeScreenProps } from "@navigation/helpers";
 import { ModalStackParamList, ModalStackScreenProps } from "./ModalNavigator";
-import { BetaStackParamList } from "./OnboardingNavigator";
+import CustomTabBar from "@navigation/components/TabBar/TabBar";
 
 export type TabParamList = {
   [Navigator.HOUSEHOLD]: NavigatorScreenParams<HouseholdStackParamList>;
@@ -46,6 +45,7 @@ const Tab = createBottomTabNavigator<TabParamList>();
 const TabNavigator = () => {
   return (
     <Tab.Navigator
+      tabBar={(props) => <CustomTabBar {...props} />}
       screenOptions={{
         tabBarActiveTintColor: "#FFFFFF",
         tabBarInactiveTintColor: "#006271",
@@ -68,7 +68,9 @@ const TabNavigator = () => {
         options={{
           tabBarLabel: () => null,
           headerShown: false,
-          tabBarIcon: ({ focused }) => <Activity color={Colors.WHITE} />,
+          tabBarIcon: ({ focused }) => (
+            <Activity color={focused ? Colors.WHITE : Colors.LIGHT_BLUE_NEW} />
+          ),
         }}
       />
       <Tab.Screen
@@ -78,7 +80,9 @@ const TabNavigator = () => {
         options={{
           tabBarLabel: () => null,
           headerShown: false,
-          tabBarIcon: ({ focused }) => <HomeImage color={Colors.WHITE} />,
+          tabBarIcon: ({ focused }) => (
+            <HomeImage color={focused ? Colors.WHITE : Colors.LIGHT_BLUE_NEW} />
+          ),
         }}
       />
 
@@ -89,7 +93,9 @@ const TabNavigator = () => {
         options={{
           tabBarLabel: () => null,
           headerShown: false,
-          tabBarIcon: ({ focused }) => <Module color={Colors.WHITE} />,
+          tabBarIcon: ({ focused }) => (
+            <Module color={focused ? Colors.WHITE : Colors.LIGHT_BLUE_NEW} />
+          ),
         }}
       />
       <Tab.Screen
@@ -99,7 +105,9 @@ const TabNavigator = () => {
         options={{
           tabBarLabel: () => null,
           headerShown: false,
-          tabBarIcon: ({ focused }) => <Bases color={Colors.WHITE} />,
+          tabBarIcon: ({ focused }) => (
+            <Bases color={focused ? Colors.WHITE : Colors.LIGHT_BLUE_NEW} />
+          ),
         }}
       />
       <Tab.Screen
@@ -109,7 +117,9 @@ const TabNavigator = () => {
         options={{
           tabBarLabel: () => null,
           headerShown: false,
-          tabBarIcon: ({ focused }) => <HouseHold color={Colors.WHITE} />,
+          tabBarIcon: ({ focused }) => (
+            <HouseHold color={focused ? Colors.WHITE : Colors.LIGHT_BLUE_NEW} />
+          ),
         }}
       />
     </Tab.Navigator>
