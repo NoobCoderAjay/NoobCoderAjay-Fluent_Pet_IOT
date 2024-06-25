@@ -10,15 +10,12 @@ import {
   Dimensions,
 } from "react-native";
 
-//@ts-ignore
-import Buy from "../../assets/images/newImages/Buy.png";
-//@ts-ignore
-import Learner_Activity from "../../assets/images/newImages/Learner_Activity.png";
 import UserInfoBox from "src/components/Landing/Box/UserInfoBox";
 import ActivityBox from "src/components/Landing/Box/ActivityBox";
 import WelComeBox from "src/components/Landing/Box/WelComeBox";
 import ProTipBox from "src/components/Landing/Box/ProTipBox";
 import LearnerActivityBox from "src/components/Landing/Box/LearnerActivityBox";
+import { images } from "src/assets/images";
 
 type Props = {};
 
@@ -44,10 +41,10 @@ const HomeScreen = (_props: Props) => {
                 {}
               }
             >
-              <Image source={Learner_Activity} />
+              <Image source={images.homeScreenImages.Learner_Activity} />
             </TouchableOpacity>
             <TouchableOpacity onPress={handlePurchase}>
-              <Image source={Buy} />
+              <Image source={images.homeScreenImages.Buy} />
             </TouchableOpacity>
           </View>
         </View>

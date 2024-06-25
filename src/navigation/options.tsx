@@ -6,12 +6,10 @@ import {
 import React from "react";
 import { Colors } from "src/theme/Colors";
 import { Font, TextSize } from "src/theme/Text";
-//@ts-ignore
-import HeaderImg from "../assets/images/header/HeaderImg.png";
-import { BackButton } from "./components";
 import { Image, StyleSheet } from "react-native";
 import { FontArizona } from "src/components/common/Typography";
 import IconLeft from "./components/IconLeft";
+import { images } from "src/assets/images";
 const styles = StyleSheet.create({
   headerBackground: {
     flex: 1,
@@ -36,7 +34,10 @@ export const screenOptions: StackNavigationOptions = {
   headerBackTitleVisible: false,
   headerBackImage: () => <IconLeft />,
   headerBackground: () => (
-    <Image source={HeaderImg} style={styles.headerBackground} />
+    <Image
+      source={images.navigationHeader.headerImg}
+      style={styles.headerBackground}
+    />
   ),
   // Android
   headerTitleAlign: "center",

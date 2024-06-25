@@ -1,12 +1,8 @@
 import React from "react";
 import { Image, StyleSheet, Text, View, Dimensions } from "react-native";
-
-//@ts-ignore
-import Graduate from "../../../assets/images/newImages/Graduate.png";
-//@ts-ignore
-import PressButton from "../../../assets/images/newImages/PressButton.png";
 import { Size, SizeV2 } from "../../../theme/Size";
 import { FontArizona } from "src/components/common/Typography";
+import { images } from "src/assets/images";
 
 type Props = {};
 
@@ -14,7 +10,7 @@ const ProTipBox = (_props: Props) => {
   return (
     <View style={styles.secondBoxContainer}>
       <View style={styles.tipContainer}>
-        <Image source={Graduate} style={styles.imageStyle} />
+        <Image source={images.proTipBox.Graduate} style={styles.imageStyle} />
         <View style={styles.tipTextContainer}>
           <Text style={styles.tipText}>Pro tip: Did you know?</Text>
           <Text style={styles.tipCookieText}>
@@ -23,7 +19,10 @@ const ProTipBox = (_props: Props) => {
           </Text>
         </View>
       </View>
-      <Image source={PressButton} style={styles.pressButtonImage} />
+      <Image
+        source={images.proTipBox.PressButton}
+        style={styles.pressButtonImage}
+      />
     </View>
   );
 };

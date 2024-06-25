@@ -1,9 +1,6 @@
 import { Image, ScrollView, StyleSheet, Text, View } from "react-native";
 import React from "react";
 
-//@ts-ignore
-import BaseButtonFour from "../../assets/images/baseImages/BaseButtonFour.png";
-
 import {
   NavigationProp,
   ParamListBase,
@@ -11,6 +8,7 @@ import {
 } from "@react-navigation/native";
 import { Screen } from "@navigation/constants";
 import SafeAreaButtonBlock from "src/components/common/SafeAreaButtonBlock";
+import { images } from "src/assets/images";
 
 type Props = {};
 
@@ -36,7 +34,7 @@ const ConnectStepTwo = (props: Props) => {
           </Text>
         </View>
         <View className="flex justify-center items-center mb-5">
-          <Image source={BaseButtonFour} />
+          <Image source={images.baseButtons.baseButtonFour} />
         </View>
         <View>
           <Text className="font-bold mt-4 text-[#333333]">

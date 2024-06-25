@@ -8,8 +8,8 @@ import {
   Modal,
 } from "react-native";
 import { RadioGroup } from "react-native-radio-buttons-group";
-//@ts-ignore
-import CrossMark from "../../assets/images/newImages/CrossMark.png";
+import { images } from "src/assets/images";
+
 interface SnoozeBottomSheetModalProps {
   visible: boolean;
   onClose: () => void;
@@ -81,7 +81,7 @@ const SnoozeBottomSheetModal: React.FC<SnoozeBottomSheetModalProps> = ({
           <View style={styles.modalTitle}>
             <Text style={styles.modaltext}>Snooze Notification</Text>
             <TouchableOpacity onPress={onClose}>
-              <Image source={CrossMark} />
+              <Image source={images.modalImages.CrossMark} />
             </TouchableOpacity>
           </View>
           <View>

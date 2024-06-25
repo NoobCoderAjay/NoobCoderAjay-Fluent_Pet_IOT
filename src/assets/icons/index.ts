@@ -46,3 +46,6 @@ export { default as Activity } from "./Activity";
 export { default as HouseHold } from "./HouseHold";
 export { default as Reset } from "./Reset";
 export { default as Done } from "./Done";
+export { default as StrekIcon } from "./StreakIcon";
+export { default as TargetIcon } from "./TargetIcon";
+export { default as NextBadge } from "./NextBadge";

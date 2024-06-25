@@ -9,13 +9,11 @@ import {
   View,
 } from "react-native";
 
-//@ts-ignore
-import BaseButtonThree from "../../assets/images/baseImages/BaseButtonThree.png";
-
 import { NavigationProp, ParamListBase } from "@react-navigation/native";
 import CustomButton from "src/components/common/CustomButton";
 import { Navigator, Screen } from "@navigation/constants";
 import { Colors } from "src/theme/Colors";
+import { images } from "src/assets/images";
 
 interface ConnectionSuccessModalProps {
   visible: boolean;
@@ -54,7 +52,7 @@ const ConnectionSuccessModal: React.FC<ConnectionSuccessModalProps> = ({
               <Text className="text-[20px] font-bold">
                 Your Base is Connected
               </Text>
-              <Image source={BaseButtonThree} />
+              <Image source={images.baseButtons.baseButtonThree} />
 
               <InfoRow label="Base Name:" value="Greenroom" />
               <InfoRow label="Base Serial Number:" value="22410119292B" />

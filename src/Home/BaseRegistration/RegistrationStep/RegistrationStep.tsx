@@ -1,20 +1,19 @@
-import React, { useState } from 'react';
-import { StyleSheet, View } from 'react-native';
+import React, { useState } from "react";
+import { StyleSheet, View } from "react-native";
 
-import BaseFirmwareUpdateScreen from 'src/Home/BaseFirmwareUpdate/BaseFirmwareUpdateScreen';
-import { Base, NetworkNearbyBase } from 'src/model/base';
+import { Base, NetworkNearbyBase } from "src/model/base";
 
 import {
   ChecklistError,
   ChecklistPoints,
   Steps,
   TutorialSteps,
-} from '../constants';
+} from "../constants";
 import {
   parseBaseQRCodeData,
   showInvalidQRCodeAlert,
   validateWifiCredentials,
-} from '../helpers';
+} from "../helpers";
 import {
   ConnectedToBaseNetworkStatus,
   ConnectionChecklist,
@@ -25,7 +24,7 @@ import {
   SetupCompleted,
   TutorialStep,
   WifiPasswordDialog,
-} from './components';
+} from "./components";
 
 interface Props {
   step: Steps;
@@ -56,8 +55,8 @@ const RegistrationStep: React.FC<Props> = ({
   onOpenQRScanner,
   onCloseQRScanner,
 }) => {
-  const [wifiNetworkSSID, setWifiNetworkSSID] = useState('');
-  const [wifiNetworkPassword, setWifiNetworkPassword] = useState('');
+  const [wifiNetworkSSID, setWifiNetworkSSID] = useState("");
+  const [wifiNetworkPassword, setWifiNetworkPassword] = useState("");
   const [wifiPasswordPromptVisible, setWifiPasswordPromptVisible] =
     useState(false);
 
@@ -68,7 +67,7 @@ const RegistrationStep: React.FC<Props> = ({
 
   const onSubmitWifiCredentials = () => {
     const wifiNetworkIdx = nearbyNetworks.findIndex(
-      (network) => network.ssid === wifiNetworkSSID,
+      (network) => network.ssid === wifiNetworkSSID
     );
 
     const credentialsValid = validateWifiCredentials({
@@ -165,8 +164,8 @@ const RegistrationStep: React.FC<Props> = ({
           checklistError={checklistError}
         />
       );
-    case Steps.FIRMWARE_UPDATE:
-      return <BaseFirmwareUpdateScreen />;
+    // case Steps.FIRMWARE_UPDATE:
+    //   return <BaseFirmwareUpdateScreen />;
     case Steps.BASE_SETUP_COMPLETED:
       return <SetupCompleted base={registeredBase} />;
     default:

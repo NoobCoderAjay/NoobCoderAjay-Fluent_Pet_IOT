@@ -8,7 +8,7 @@ import {
 } from "@react-navigation/native";
 import * as WebBrowser from "expo-web-browser";
 
-import React, { useContext } from "react";
+import React from "react";
 import { Dimensions, StyleSheet, View, ScrollView, Text } from "react-native";
 import { useSafeAreaInsets } from "react-native-safe-area-context";
 
@@ -20,12 +20,11 @@ import { BookIcon, LogoutIcon, SettingsIcon } from "../../../assets/icons";
 import { SCREEN_WIDTH, Size, ViewportSize } from "../../../theme/Size";
 
 import { Colors } from "../../../theme/Colors";
-import Avatar from "src/components/Avatar/Avatar";
-import { AvatarSize } from "src/components/Avatar/constants/AvatarSize";
-import { Divider } from "src/components/common";
+import { AnimatedPressable, Divider } from "src/components/common";
 import CloseButton from "../CloseButton";
-import AvatarTypeSpecific from "src/components/Avatar/AvatarTypeSpecific";
+
 import { FontArizona } from "src/components/common/Typography";
+import PolygonImageContainer from "src/components/common/PolygonImageContainer";
 
 const { width } = Dimensions.get("window");
 export const DRAWER_WIDTH = width * 0.8;
@@ -132,7 +131,14 @@ const Drawer = () => {
         )} */}
       {/* </View> */}
       <View className="flex-row mt-5 mb-5 border-[#0000001A] border-2 rounded-[25px] p-4 items-center justify-center">
-        <AvatarTypeSpecific name={"H"} pushers={[]} size={60} />
+        <AnimatedPressable>
+          <PolygonImageContainer
+            imageLoaded={true}
+            // intialStyle={styles.polygonIntailContainer}
+            isIntialPage
+            size={60}
+          />
+        </AnimatedPressable>
         <View className="flex-column ml-4 mt-0">
           <Text
             className={`text-[20px] font-bold font-[${FontArizona.BOLD}] leading-[24.66px] text-left text-[#006271]`}

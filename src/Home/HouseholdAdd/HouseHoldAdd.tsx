@@ -49,19 +49,22 @@ const HouseHoldAdd2 = (props: Props) => {
 
   return (
     <>
-      <ScrollView className="p-5 bg-white h-full">
+      <ScrollView
+        className="p-5 bg-white h-full"
+        showsVerticalScrollIndicator={false}
+      >
         <View className="flex justify-center items-center">
           <Headline2>Add a Member</Headline2>
         </View>
         <View className="justify-center items-center mt-5">
           <AnimatedPressable>
             <PolygonImageContainer
-              points={PolygonShapePoints.HEXAGON}
               imageLoaded={true}
               intialStyle={styles.polygonIntailContainer}
               isIntialPage
             />
           </AnimatedPressable>
+
           <BodyBold>Let's add a member to your household</BodyBold>
         </View>
         <View className="flex-row justify-around items-center mt-7">
@@ -90,9 +93,21 @@ const HouseHoldAdd2 = (props: Props) => {
               setSubjectName={() => {}}
               onBirthDateSelect={() => {}}
               onTrainingDateSelect={() => {}}
+              researchId={""}
+              setResearchId={function (
+                value: React.SetStateAction<string>
+              ): void {
+                throw new Error("Function not implemented.");
+              }}
             />
           ) : (
-            <TeacherForm />
+            <TeacherForm
+              isNewTeacher={false}
+              email={""}
+              setEmail={function (value: React.SetStateAction<string>): void {
+                throw new Error("Function not implemented.");
+              }}
+            />
           )}
         </View>
       </ScrollView>

@@ -1,9 +1,6 @@
 import { Image, ScrollView, StyleSheet, Text, View } from "react-native";
 import React from "react";
 
-//@ts-ignore
-import BaseImageThree from "../../assets/images/baseImages/BaseButtonThree.png";
-
 import {
   NavigationProp,
   ParamListBase,
@@ -15,6 +12,7 @@ import SafeAreaButtonBlock from "src/components/common/SafeAreaButtonBlock";
 
 import { Ionicons } from "@expo/vector-icons";
 import { SimpleLineIcons } from "@expo/vector-icons";
+import { images } from "src/assets/images";
 type Props = {};
 
 const ConnectStepOne = (props: Props) => {
@@ -39,7 +37,7 @@ const ConnectStepOne = (props: Props) => {
           </Text>
         </View>
         <View className="flex justify-center items-center mb-5">
-          <Image source={BaseImageThree} />
+          <Image source={images.baseButtons.baseButtonThree} />
         </View>
         <View>
           <Text className="font-bold mt-4 text-[#333333]">

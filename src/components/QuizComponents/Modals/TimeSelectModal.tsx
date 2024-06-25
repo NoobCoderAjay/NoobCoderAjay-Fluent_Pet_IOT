@@ -9,9 +9,7 @@ import {
   Image,
   ScrollView,
 } from "react-native";
-
-//@ts-ignore
-import Clock from "../../../assets/images/shareModal/Clock.png";
+import { images } from "src/assets/images";
 
 interface TimeSelectModalProps {
   visible: boolean;
@@ -97,7 +95,7 @@ const TimeSelectModal: React.FC<TimeSelectModalProps> = ({
     >
       <View className="flex-1 justify-center items-center bg-[#0000008A] bg-opacity-50">
         <View className="bg-white p-5 rounded-lg items-center">
-          <Image source={Clock} />
+          <Image source={images.modalImages.clock} />
           <Text
             className="font-bold text-gray-800 text-lg mt-2"
             // style={{ fontFamily: FontArizona.BOLD }}

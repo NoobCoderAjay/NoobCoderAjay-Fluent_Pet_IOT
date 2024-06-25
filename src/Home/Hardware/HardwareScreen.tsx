@@ -7,10 +7,6 @@ import {
   Dimensions,
 } from "react-native";
 import React from "react";
-//@ts-ignore
-import BaseImage from "../../assets/images/baseImages/BaseImage.png";
-//@ts-ignore
-import BaseImageTwo from "../../assets/images/baseImages/BaseImageTwo.png";
 
 import {
   NavigationProp,
@@ -19,6 +15,7 @@ import {
 } from "@react-navigation/native";
 import { Navigator, Screen } from "@navigation/constants";
 import CustomButton from "src/components/common/CustomButton";
+import { images } from "src/assets/images";
 
 type Props = {};
 
@@ -43,12 +40,12 @@ const HardwareScreen = (props: Props) => {
               <CustomButton text="Add a Button" className="px-5 rounded-lg" />
             </View>
           </View>
-          <Image source={BaseImage} className="mt-4" />
+          <Image source={images.baseImages.baseLogo} className="mt-4" />
         </View>
 
         <View className="justify-center items-center">
           <View className="flex-col justify-center items-center mt-10">
-            <Image source={BaseImageTwo} />
+            <Image source={images.baseImages.BaseImageTwo} />
             <View className="mt-10">
               <Text className="font-arizona text-lg font-bold">
                 You don’t have any Bases yet!

@@ -1,9 +1,7 @@
 import React from "react";
 import { Image, Modal, Text, TouchableOpacity, View } from "react-native";
-
-//@ts-ignore
-import SuccessPic from "../../../assets/images/shareModal/SuccessPic.png";
 import { FontArizona } from "../../common/Typography";
+import { images } from "src/assets/images";
 
 interface CustomModalProps {
   visible: boolean;
@@ -23,7 +21,7 @@ const CustomSuccessModal: React.FC<CustomModalProps> = ({
     >
       <View className="flex-1 justify-center items-center bg-[#0000008A] bg-opacity-50">
         <View className="bg-white p-5 rounded-lg items-center">
-          <Image source={SuccessPic} />
+          <Image source={images.modalImages.SuccessPic} />
           <Text className="text-gray-800 text-xl font-bold">
             Congratulations
           </Text>

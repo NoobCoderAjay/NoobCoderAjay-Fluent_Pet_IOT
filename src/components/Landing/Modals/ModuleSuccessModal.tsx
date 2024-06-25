@@ -14,13 +14,9 @@ import {
 import { FontArizona } from "src/components/common/Typography";
 import { Colors } from "src/theme/Colors";
 
-//@ts-ignore
-import Badges from "../../assets/images/newImages/Badges.png";
-//@ts-ignore
-import SuccessPic from "../../assets/images/shareModal/SuccessPic.png";
-
 import CustomButton from "src/components/common/CustomButton";
 import StreakBox from "../Box/StreakBox";
+import { images } from "src/assets/images";
 
 interface ModuleSuccessModalProps {
   visible: boolean;
@@ -47,7 +43,7 @@ const ModuleSuccessModal: React.FC<ModuleSuccessModalProps> = ({
               <TouchableOpacity onPress={onClose} style={styles.closeButton}>
                 <AntDesign name="sharealt" size={24} color="#006271" />
               </TouchableOpacity>
-              <Image source={SuccessPic} />
+              <Image source={images.modalImages.SuccessPic} />
               <Text style={styles.congratulationText}>Success</Text>
               <Text style={styles.modalText}>
                 Your button has been recorded
@@ -65,7 +61,7 @@ const ModuleSuccessModal: React.FC<ModuleSuccessModalProps> = ({
                 <View style={styles.achievementsStreakContent}>
                   <Text style={styles.countText}>1750 / 2000</Text>
                   <View style={styles.badgeContainer}>
-                    <Image source={Badges} />
+                    <Image source={images.modalImages.Badges} />
                     <Text style={styles.quizeButtonText}>Quiz{"\n"}Master</Text>
                   </View>
                 </View>

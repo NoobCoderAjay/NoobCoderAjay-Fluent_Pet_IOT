@@ -1,14 +1,11 @@
 import { Text, View } from "react-native";
 import React from "react";
-import AvatarTypeSpecific from "../../components/Avatar/AvatarTypeSpecific";
-
 import {
   NavigationProp,
   ParamListBase,
   useNavigation,
 } from "@react-navigation/native";
 import { Screen } from "../../navigation/constants";
-import { TouchableOpacity } from "react-native-gesture-handler";
 import { FontArizona } from "src/components/common/Typography";
 import CustomButton from "src/components/common/CustomButton";
 import { AnimatedPressable } from "src/components/common";
