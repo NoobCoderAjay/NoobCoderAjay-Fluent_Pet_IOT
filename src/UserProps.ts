@@ -7,14 +7,15 @@ export interface UserProps {
   roles: string[];
   groups: any;
   featureFlags: any;
+  isOnboarded?: boolean;
 }
 
 export const emptyUserObject: UserProps = {
-  name: '',
-  email: '',
+  name: "",
+  email: "",
   id: -1,
   household_id: -1,
-  avatar: '',
+  avatar: "",
   roles: [],
   groups: {},
   featureFlags: {},

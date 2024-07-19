@@ -32,7 +32,7 @@ const CustomSuccessModal: React.FC<CustomModalProps> = ({
             className="bg-[#006271] py-3 px-36 rounded-[15px] mt-5"
             onPress={onClose}
           >
-            <Text className="text-white text-base font-bold text-center">
+            <Text className="text-white text-base font-bold text-center w-16">
               Let’s Go
             </Text>
           </TouchableOpacity>

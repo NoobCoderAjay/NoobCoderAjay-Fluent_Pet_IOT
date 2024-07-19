@@ -1,0 +1,10 @@
+export const SIGN_IN = "auth/signIn";
+export const SIGN_OUT = "auth/signOut";
+export const REFRESH_TOKEN = "auth/refreshToken";
+export const SWITCH_ENVIRONMENT = "auth/switchEnvironment";
+export const SET_PUSH_NOTIFICATION_TOKEN = "auth/setPushNotificationToken";
+export const SET_LOGIN_AS = "auth/setLoginAs";
+export const SET_INTERCOM_LOGGED_IN = "auth/setIsIntercomLoggedIn";
+export const SET_ONBOARDED_STATUS = "auth/setOnboardedStatus";
+export const SET_LOADING = "auth/setLoading";
+export const SET_ERROR = "auth/setError";

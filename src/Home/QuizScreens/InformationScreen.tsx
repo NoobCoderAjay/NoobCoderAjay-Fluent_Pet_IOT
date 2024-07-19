@@ -9,6 +9,7 @@ import React, { useEffect, useState } from "react";
 import { Dimensions, ScrollView, StyleSheet, Text, View } from "react-native";
 import InformationForm from "src/components/QuizComponents/Forms/InformationForm";
 import SafeAreaButtonBlock from "src/components/common/SafeAreaButtonBlock";
+import { Size } from "src/theme/Size";
 
 type Props = {};
 
@@ -54,9 +55,9 @@ const InformationScreen: React.FC<Props> = ({}) => {
     <>
       <ScrollView
         // eslint-disable-next-line react-native/no-inline-styles
-        contentContainerStyle={{ paddingBottom: 130 }}
         showsVerticalScrollIndicator={false}
         className="p-5 bg-white"
+        contentContainerStyle={{ paddingBottom: Size.S }}
       >
         <View>
           <Text className="text-[#333333] text-2xl font-bold font-arizona-bold">

@@ -5,7 +5,14 @@ import {
   useNavigation,
 } from "@react-navigation/native";
 import React, { useState } from "react";
-import { Alert, ScrollView, StyleSheet, Text, View } from "react-native";
+import {
+  Alert,
+  Dimensions,
+  ScrollView,
+  StyleSheet,
+  Text,
+  View,
+} from "react-native";
 import ProfileForm from "src/components/QuizComponents/Forms/ProfileForm";
 import { AnimatedPressable } from "src/components/common";
 import PolygonImageContainer from "src/components/common/PolygonImageContainer";
@@ -49,7 +56,7 @@ const ProfileScreen: React.FC = () => {
     <>
       <ScrollView
         className="p-5 bg-[#FFFFFF]"
-        contentContainerStyle={{ paddingBottom: 130 }}
+        contentContainerStyle={{ paddingBottom: paddingBottom }}
         showsVerticalScrollIndicator={false}
       >
         <View className="mb-5">
@@ -72,11 +79,12 @@ const ProfileScreen: React.FC = () => {
         </View>
         <View className="mt-5">
           <ProfileForm />
-          <View className="flex-row justify-between mt-2.5">
+          <View className="flex-row justify-between  mt-2.5">
             <Text className="text-[#006271] text-sm font-arizona-bold">
-              Do you have FluentPet connect smart buttons{"\n"}you need to
+              Do you have FluentPet connect smart {"\n"}buttons you need to
               setup?
             </Text>
+
             <CustomSwitch onChange={handleSwitchChange} value={switchValue} />
           </View>
         </View>
@@ -95,6 +103,9 @@ const ProfileScreen: React.FC = () => {
 };
 
 export default ProfileScreen;
+
+const screenHeight = Dimensions.get("window").height;
+const paddingBottom = screenHeight * 0.11;
 
 const styles = StyleSheet.create({
   bottomButtonText: {

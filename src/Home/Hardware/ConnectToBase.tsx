@@ -1,6 +1,6 @@
 import _ from "lodash";
 import React from "react";
-import { Image, StyleSheet, Text, View } from "react-native";
+import { Image, ScrollView, StyleSheet, Text, View } from "react-native";
 import { BASE_SERIAL_NUMBER_LENGTH } from "./constants";
 
 import {
@@ -53,7 +53,7 @@ export const ConnectToBase: React.FC<Props> = ({
 
   return (
     <>
-      <View className="flex-1 p-5 bg-white">
+      <ScrollView className="flex-1 p-5 bg-white">
         <Title1 v2 color={Colors.BLACK} marginBottom={SizeV2.S}>
           Connect to your Base
         </Title1>
@@ -89,7 +89,7 @@ export const ConnectToBase: React.FC<Props> = ({
             resizeMode="contain"
           />
         </View>
-      </View>
+      </ScrollView>
       <SafeAreaButtonBlock
         leftButtonText="Cancel"
         leftButtonOnPress={handleBackBtnPress}

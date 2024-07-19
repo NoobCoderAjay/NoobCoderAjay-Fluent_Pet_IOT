@@ -21,7 +21,7 @@ const WelComeBox = (_props: Props) => {
   return (
     <View className="bg-[#F9E1C0] relative mt-4 w-full h-56 rounded-2xl overflow-hidden flex-row items-end">
       <View className="flex-1 justify-between pb-5 ml-5">
-        <View>
+        <View className="mb-2 ml-1">
           <Text
             className="text-lg font-bold text-[#006271]"
             style={{ fontFamily: FontArizona.BOLD }}
@@ -36,7 +36,7 @@ const WelComeBox = (_props: Props) => {
           </Text>
         </View>
         <TouchableOpacity
-          className="bg-[#006271] py-2.5 rounded-xl w-2/5 mt-5"
+          className="bg-[#006271] py-2.5 rounded-xl w-2/5 mt-5 mb-5 "
           onPress={handleBtnPress}
         >
           <Text className="text-white text-[14px] font-bold text-center">

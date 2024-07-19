@@ -13,7 +13,7 @@ import CustomSuccessModal from "src/components/QuizComponents/Modals/SuccessModa
 import SafeAreaButtonBlock from "src/components/common/SafeAreaButtonBlock";
 import { FontArizona } from "src/components/common/Typography";
 import { Colors } from "src/theme/Colors";
-import CheckBox from "@react-native-community/checkbox";
+
 import Checkbox from "expo-checkbox";
 
 type Props = {};
@@ -34,7 +34,7 @@ const SetupFinish = (_props: Props) => {
 
   return (
     <>
-      <ScrollView className="p-5 bg-white" style={styles.container}>
+      <ScrollView className="p-5 bg-white" showsVerticalScrollIndicator={false}>
         <View>
           <Text className="text-gray-800 font-bold text-2xl">Finish Setup</Text>
           <Text className="text-gray-800 text-base mt-1.5">
@@ -52,10 +52,10 @@ const SetupFinish = (_props: Props) => {
               style={styles.checkbox}
             />
             <Text className="ml-2.5 font-arizonaRegular">
-              “I consent to having my pet button pressing data {"\n"}shared with
+              “I consent to having my pet button pressing data shared with
               qualified university researchers for the purpose of scientific
-              research, and agree to allow {"\n"}myself to be contacted by
-              researchers investigating related scientific questions.”
+              research, and agree to allow myself to be contacted by researchers
+              investigating related scientific questions.”
             </Text>
           </View>
         </View>
@@ -92,61 +92,6 @@ const SetupFinish = (_props: Props) => {
 export default SetupFinish;
 
 const styles = StyleSheet.create({
-  container: {
-    height: Dimensions.get("screen").height - 100,
-  },
-  heading: {
-    color: "#333333",
-    fontFamily: FontArizona.BOLD,
-    fontSize: 25,
-  },
-  subHeading: {
-    color: "#666666",
-    fontSize: 14,
-    marginTop: 6,
-    fontFamily: FontArizona.REGULAR,
-  },
-  dataConsentContainer: {
-    marginTop: 30,
-  },
-  dataConsentLabel: {
-    color: "#333333",
-    fontWeight: "bold",
-    fontSize: 16,
-    fontFamily: FontArizona.REGULAR,
-  },
-  checkboxContainer: {
-    flexDirection: "row",
-    marginTop: 20,
-  },
-  checkboxText: {
-    marginLeft: 10,
-    fontFamily: FontArizona.REGULAR,
-  },
-  infoContainer: {
-    marginTop: 20,
-    flexDirection: "row",
-  },
-  infoTextContainer: {
-    marginLeft: 10,
-  },
-  infoText: {
-    color: "#F03738",
-    fontFamily: FontArizona.BOLD,
-    marginTop: 3,
-  },
-  bottomButtonContainer: {
-    position: "absolute",
-    bottom: 20,
-    flexDirection: "row",
-    justifyContent: "space-between",
-    paddingHorizontal: 20,
-  },
-
-  saveButton: {
-    backgroundColor: Colors.PRIMARY_DARK,
-    marginLeft: 10,
-  },
   bottomButtonText: {
     fontSize: 16,
     fontWeight: "bold",

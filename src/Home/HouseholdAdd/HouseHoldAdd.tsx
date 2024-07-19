@@ -53,62 +53,64 @@ const HouseHoldAdd2 = (props: Props) => {
         className="p-5 bg-white h-full"
         showsVerticalScrollIndicator={false}
       >
-        <View className="flex justify-center items-center">
-          <Headline2>Add a Member</Headline2>
-        </View>
-        <View className="justify-center items-center mt-5">
-          <AnimatedPressable>
-            <PolygonImageContainer
-              imageLoaded={true}
-              intialStyle={styles.polygonIntailContainer}
-              isIntialPage
-            />
-          </AnimatedPressable>
+        <View className=" -mb-16">
+          <View className="flex justify-center items-center">
+            <Headline2>Add a Member</Headline2>
+          </View>
+          <View className="justify-center items-center mt-5">
+            <AnimatedPressable>
+              <PolygonImageContainer
+                imageLoaded={true}
+                intialStyle={styles.polygonIntailContainer}
+                isIntialPage
+              />
+            </AnimatedPressable>
 
-          <BodyBold>Let's add a member to your household</BodyBold>
-        </View>
-        <View className="flex-row justify-around items-center mt-7">
-          <RadioButton
-            label="Learner"
-            selected={selectedForm === "learner"}
-            onPress={() => setSelectedForm("learner")}
-          />
-          <RadioButton
-            label="Teacher"
-            selected={selectedForm === "teacher"}
-            onPress={() => setSelectedForm("teacher")}
-          />
-        </View>
-        <View>
-          {selectedForm === "learner" ? (
-            <LearnerForm
-              subjectName={""}
-              learnerTypesForSelect={learnerTypesForSelect}
-              species={species}
-              subType={subType}
-              language={""}
-              setSpecies={() => {}}
-              setSubType={() => {}}
-              setLanguage={() => {}}
-              setSubjectName={() => {}}
-              onBirthDateSelect={() => {}}
-              onTrainingDateSelect={() => {}}
-              researchId={""}
-              setResearchId={function (
-                value: React.SetStateAction<string>
-              ): void {
-                throw new Error("Function not implemented.");
-              }}
+            <BodyBold>Let's add a member to your household</BodyBold>
+          </View>
+          <View className="flex-row justify-around items-center mt-7">
+            <RadioButton
+              label="Learner"
+              selected={selectedForm === "learner"}
+              onPress={() => setSelectedForm("learner")}
             />
-          ) : (
-            <TeacherForm
-              isNewTeacher={false}
-              email={""}
-              setEmail={function (value: React.SetStateAction<string>): void {
-                throw new Error("Function not implemented.");
-              }}
+            <RadioButton
+              label="Teacher"
+              selected={selectedForm === "teacher"}
+              onPress={() => setSelectedForm("teacher")}
             />
-          )}
+          </View>
+          <View>
+            {selectedForm === "learner" ? (
+              <LearnerForm
+                subjectName={""}
+                learnerTypesForSelect={learnerTypesForSelect}
+                species={species}
+                subType={subType}
+                language={""}
+                setSpecies={() => {}}
+                setSubType={() => {}}
+                setLanguage={() => {}}
+                setSubjectName={() => {}}
+                onBirthDateSelect={() => {}}
+                onTrainingDateSelect={() => {}}
+                researchId={""}
+                setResearchId={function (
+                  value: React.SetStateAction<string>
+                ): void {
+                  throw new Error("Function not implemented.");
+                }}
+              />
+            ) : (
+              <TeacherForm
+                isNewTeacher={false}
+                email={""}
+                setEmail={function (value: React.SetStateAction<string>): void {
+                  throw new Error("Function not implemented.");
+                }}
+              />
+            )}
+          </View>
         </View>
       </ScrollView>
       <SafeAreaButtonBlock

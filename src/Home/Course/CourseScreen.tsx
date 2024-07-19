@@ -57,7 +57,7 @@ const CourseScreen = () => {
           </Text>
         </View>
       </ImageBackground>
-      <ScrollView>
+      <ScrollView showsVerticalScrollIndicator={false}>
         <View style={styles.pageContainer}>
           <View>
             <Text className="text-[#006271] text-lg font-bold">Overview</Text>
@@ -118,7 +118,7 @@ const styles = StyleSheet.create({
   },
   imageContainer: {
     width: Dimensions.get("screen").width,
-    height: Dimensions.get("screen").height - 600,
+    height: Dimensions.get("screen").height * 0.32,
   },
   progressContainer: {
     height: screenHeight * 0.015,

@@ -14,6 +14,7 @@ import {
 } from "react-native";
 import SafeAreaButtonBlock from "src/components/common/SafeAreaButtonBlock";
 import { Screen } from "@navigation/constants";
+import { Size } from "src/theme/Size";
 
 type Props = {};
 
@@ -52,7 +53,7 @@ const TestScreen = (_props: Props) => {
     <>
       <ScrollView
         // eslint-disable-next-line react-native/no-inline-styles
-        contentContainerStyle={{ paddingBottom: 130 }}
+        contentContainerStyle={{ paddingBottom: Size.L }}
         showsVerticalScrollIndicator={false}
         className="p-5 bg-white"
       >
@@ -69,6 +70,34 @@ const TestScreen = (_props: Props) => {
             <Text className="text-gray-800 text-base mt-1.5 font-semibold">
               Tell us a bit about your experience !
             </Text>
+          </View>
+          <View className="mt-2.5">
+            {[
+              "First time teacher",
+              "I've tried button teaching before but haven't been successful",
+              "I've been using buttons for a while and have a successful learner",
+            ].map(renderOption)}
+          </View>
+          <View className="mt-2.5">
+            {[
+              "First time teacher",
+              "I've tried button teaching before but haven't been successful",
+              "I've been using buttons for a while and have a successful learner",
+            ].map(renderOption)}
+          </View>
+          <View className="mt-2.5">
+            {[
+              "First time teacher",
+              "I've tried button teaching before but haven't been successful",
+              "I've been using buttons for a while and have a successful learner",
+            ].map(renderOption)}
+          </View>
+          <View className="mt-2.5">
+            {[
+              "First time teacher",
+              "I've tried button teaching before but haven't been successful",
+              "I've been using buttons for a while and have a successful learner",
+            ].map(renderOption)}
           </View>
           <View className="mt-2.5">
             {[
@@ -94,7 +123,6 @@ const TestScreen = (_props: Props) => {
 };
 
 export default TestScreen;
-
 const styles = StyleSheet.create({
   bottomButtonText: {
     fontSize: 16,

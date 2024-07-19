@@ -51,9 +51,9 @@ const SetupConnection = (props: Props) => {
                 (Optional)
               </Text>
               <Text className="text-base font-[${FontArizona.REGULAR}] text-[#999999] mt-2">
-                This lets the app allow access to your camera in {"\n"}order to
-                take a photo of the QR code on the bottom {"\n"}of your Base,
-                and connect to your Base automatically.
+                This lets the app allow access to your camera in order to take a
+                photo of the QR code on the bottom of your Base, and connect to
+                your Base automatically.
               </Text>
             </View>
           </View>
